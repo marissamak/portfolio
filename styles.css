@@ -238,8 +238,8 @@ ul {
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.05fr 0.85fr;
-  gap: clamp(1.5rem, 3.5vw, 2.75rem);
+  grid-template-columns: 1fr 0.92fr;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
   align-items: center;
 }
 
@@ -326,10 +326,10 @@ ul {
 
 .hero-photo {
   aspect-ratio: 4 / 5;
-  max-height: min(46vh, 22rem);
+  max-height: min(52vh, 25.5rem);
   margin-left: auto;
   width: 100%;
-  max-width: min(100%, 20rem);
+  max-width: min(100%, 23rem);
   background: var(--accent);
   overflow: hidden;
 }
@@ -1060,6 +1060,7 @@ ul {
 /* Skills */
 .skills {
   background: var(--bg-soft);
+  padding-bottom: clamp(1.75rem, 4vw, 3rem);
 }
 
 .skills-intro {
@@ -1099,6 +1100,7 @@ ul {
 /* Connect */
 .connect {
   text-align: center;
+  padding-top: clamp(1.75rem, 4vw, 3rem);
   padding-bottom: clamp(3.5rem, 8vw, 5.5rem);
   background: var(--bg-soft);
 }
@@ -1291,9 +1293,9 @@ ul {
   }
 
   .hero-photo {
-    max-width: 14rem;
+    max-width: 16rem;
     order: -1;
-    max-height: 18rem;
+    max-height: 20rem;
     aspect-ratio: 1 / 1;
     margin-left: 0;
   }
