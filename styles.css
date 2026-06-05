@@ -909,18 +909,6 @@ ul {
   }
 }
 
-@media (max-width: 768px) {
-  .creative-project__images {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-
-  .creative-project__images img {
-    aspect-ratio: 4 / 5;
-    max-height: 28rem;
-  }
-}
-
 @media (max-width: 640px) {
   .nav-desktop {
     display: none;
