@@ -239,8 +239,8 @@ ul {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.05fr 0.85fr;
-  gap: clamp(1.25rem, 3vw, 2.5rem);
-  align-items: end;
+  gap: clamp(1.5rem, 3.5vw, 2.75rem);
+  align-items: center;
 }
 
 .hero-eyebrow {
@@ -294,10 +294,10 @@ ul {
 
 .hero-photo {
   aspect-ratio: 4 / 5;
-  max-height: min(58vh, 28rem);
+  max-height: min(52vh, 26rem);
   margin-left: auto;
   width: 100%;
-  max-width: min(100%, 26rem);
+  max-width: min(100%, 24rem);
   background: var(--accent);
   overflow: hidden;
 }

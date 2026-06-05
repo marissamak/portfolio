@@ -1,40 +1,70 @@
-# Push your site live (every time)
+# Your live site did not update because GitHub never got your files
 
-Your live site is: **https://marissamak.github.io/portfolio/**
+**Live URL:** https://marissamak.github.io/portfolio/
 
-Changes on your computer do **not** go live until you push. Follow these steps every time.
+Saving files in Cursor = your Mac only.  
+**GitHub** = what the world sees.  
+They are not connected until you **push** (or paste on GitHub.com).
+
+Run in Terminal (in this folder):
+
+```bash
+./push-live.sh
+```
+
+It tells you how many commits are still waiting to push.
 
 ---
 
-## GitHub Desktop (easiest)
+## Method 1: GitHub Desktop (best if it works)
 
 1. Open **GitHub Desktop**
-2. Top left: make sure the repo is **portfolio** (not something else)
-3. You should see changed files on the left and a commit box at the bottom left
-4. Bottom left, type any short message (e.g. `Update site`) or use the one already filled in
-5. Click **Commit to main**
-6. Click **Push origin** (top bar, only appears after you commit)
-7. Wait until it says **"Fetched"** or shows no pending commits
-8. Wait **1–2 minutes**, then open: https://marissamak.github.io/portfolio/
-9. Hard refresh: **Cmd + Shift + R**
+2. Top left must say **portfolio** (not bymarissamak)
+3. Look at the top bar:
+   - If it says **Push origin** → click it. Done.
+   - If it only says **Commit to main** → type a message, click **Commit to main**, then **Push origin**
+4. When finished, the app should NOT say “X commits ahead of origin”
+5. Wait 2 minutes, open https://marissamak.github.io/portfolio/ and press **Cmd + Shift + R**
+
+**You did NOT push if** `./push-live.sh` still says commits waiting.
 
 ---
 
-## How you know it worked
+## Method 2: Paste on GitHub.com (no Desktop push needed)
 
-- In GitHub Desktop: no files listed as changed, branch says up to date with origin
-- On the live site: right-click → View Page Source → search for `styles.css?v=17` (number goes up when we bump it)
+Use this if Desktop will not push.
+
+### Fix index.html
+
+1. In Cursor, open `index.html` → **Cmd + A** → **Cmd + C** (copy all)
+2. In your browser, go to:  
+   https://github.com/marissamak/portfolio/edit/main/index.html  
+   (log in to GitHub if asked)
+3. Click in the big text box → **Cmd + A** → **Cmd + V** (paste)
+4. Scroll down → **Commit changes** → green button
+5. Wait for it to save
+
+### Fix styles.css
+
+1. In Cursor, open `styles.css` → **Cmd + A** → **Cmd + C**
+2. Go to:  
+   https://github.com/marissamak/portfolio/edit/main/styles.css
+3. **Cmd + A** → **Cmd + V**
+4. **Commit changes**
+
+### Check it worked
+
+1. Wait 2 minutes
+2. Open https://marissamak.github.io/portfolio/
+3. **Cmd + Shift + R**
+4. View Page Source → search for `v=17` (not `v=16`)
+5. Search page source for `View deck` → should find **nothing**
 
 ---
 
-## If Push origin is greyed out
+## Wrong links (will look “unchanged”)
 
-You forgot step 5 (Commit first). Commit, then Push.
-
----
-
-## If you use the wrong link
-
-Only this works: **https://marissamak.github.io/portfolio/**
-
-`marissamak.github.io` alone will **not** show your site.
+| Wrong | Right |
+|-------|--------|
+| marissamak.github.io | marissamak.github.io/**portfolio/** |
+| Old bookmark without /portfolio/ | Use full URL above |
