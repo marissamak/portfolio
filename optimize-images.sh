@@ -25,10 +25,24 @@ backup_once "my-pic.jpg"
 sips -Z 1400 -s formatOptions 85 my-pic.jpg >/dev/null
 echo "  my-pic.jpg ($(du -h my-pic.jpg | cut -f1))"
 
-echo "Creative + client + NFP screenshots (900px JPEG)..."
+echo "Creative + client + NFP screenshots (900px JPEG + thumbs)..."
 for f in creative-*.png daphnes-artistry-*.png hanabi-baking-studio-*.png private-client-deck-*.png nonprofit-*.png; do
   [[ -f "$f" ]] || continue
   to_jpeg "$f" 900
+done
+
+echo "Client/NFP display thumbs (560px)..."
+for f in daphnes-artistry-*.jpg hanabi-baking-studio-*.jpg private-client-deck-*.jpg nonprofit-*.jpg; do
+  [[ -f "$f" && "$f" != *-thumb.jpg ]] || continue
+  base="${f%.jpg}"
+  sips -s format jpeg -s formatOptions 74 -Z 560 "$f" --out "${base}-thumb.jpg" >/dev/null
+done
+
+echo "Creative display thumbs (360px)..."
+for f in creative-*.jpg; do
+  [[ -f "$f" && "$f" != *-thumb.jpg ]] || continue
+  base="${f%.jpg}"
+  sips -s format jpeg -s formatOptions 72 -Z 360 "$f" --out "${base}-thumb.jpg" >/dev/null
 done
 
 echo "Connect button (PNG, smaller)..."

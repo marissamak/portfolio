@@ -8,22 +8,85 @@
   const workSubtabs = document.querySelectorAll(".work-subtab");
   const workPanels = document.querySelectorAll(".work-panel");
   const workSubtabsWrap = document.querySelector(".work-subtabs");
-  const projectCards = document.querySelectorAll(".project-card");
   const professionalPanel = document.querySelector('[data-panel="professional"]');
+  const creativePanel = document.querySelector('[data-panel="creative"]');
+  const workSection = document.getElementById("work");
 
-  function loadDeferredImages(root) {
-    if (!root) return;
-    root.querySelectorAll("img[data-src]:not([src])").forEach((img) => {
+  let activeWorkTab = "creative";
+  let workSectionVisible = false;
+  let loadQueue = Promise.resolve();
+
+  function loadImage(img) {
+    if (!img || img.src || !img.dataset.src) return Promise.resolve();
+    return new Promise((resolve) => {
+      const onDone = () => {
+        img.removeEventListener("load", onDone);
+        img.removeEventListener("error", onDone);
+        resolve();
+      };
+      img.addEventListener("load", onDone);
+      img.addEventListener("error", onDone);
       img.src = img.dataset.src;
     });
   }
 
-  let professionalImagesReady = false;
+  function enqueueImage(img) {
+    loadQueue = loadQueue.then(() => loadImage(img));
+  }
 
-  function loadProfessionalImages() {
-    if (professionalImagesReady) return;
-    loadDeferredImages(professionalPanel);
-    professionalImagesReady = true;
+  function observeLazyImages(root, enabled) {
+    if (!root || !("IntersectionObserver" in window)) return null;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting || !enabled()) return;
+          enqueueImage(entry.target);
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "40px 0px", threshold: 0.08 }
+    );
+
+    root.querySelectorAll("img[data-src]:not([src])").forEach((img) => {
+      observer.observe(img);
+    });
+
+    return observer;
+  }
+
+  let creativeObserver = null;
+  let professionalObserver = null;
+
+  function refreshCreativeObserver() {
+    if (creativeObserver) creativeObserver.disconnect();
+    if (!workSectionVisible || activeWorkTab !== "creative") return;
+    creativeObserver = observeLazyImages(creativePanel, () => workSectionVisible && activeWorkTab === "creative");
+  }
+
+  function refreshProfessionalObserver() {
+    if (professionalObserver) professionalObserver.disconnect();
+    if (!workSectionVisible || activeWorkTab !== "professional") return;
+    professionalObserver = observeLazyImages(
+      professionalPanel,
+      () => workSectionVisible && activeWorkTab === "professional"
+    );
+  }
+
+  if (workSection && "IntersectionObserver" in window) {
+    const workObserver = new IntersectionObserver(
+      (entries) => {
+        workSectionVisible = entries[0].isIntersecting;
+        if (!workSectionVisible) return;
+        refreshCreativeObserver();
+        refreshProfessionalObserver();
+      },
+      { threshold: 0.05, rootMargin: "0px 0px 10% 0px" }
+    );
+    workObserver.observe(workSection);
+  } else {
+    workSectionVisible = true;
+    refreshCreativeObserver();
   }
 
   /* Header scroll state */
@@ -56,30 +119,10 @@
     });
   }
 
-  /* Load each personal project row when it scrolls into view */
-  const creativeProjects = document.querySelectorAll(
-    ".creative-project img[data-src]"
-  );
-
-  if (creativeProjects.length && "IntersectionObserver" in window) {
-    const projectObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          loadDeferredImages(entry.target.closest(".creative-project"));
-          projectObserver.unobserve(entry.target);
-        });
-      },
-      { rootMargin: "120px 0px", threshold: 0.01 }
-    );
-
-    creativeProjects.forEach((img) => projectObserver.observe(img));
-  } else {
-    loadDeferredImages(document.querySelector('[data-panel="creative"]'));
-  }
-
   /* Work tabs: creative vs professional */
   function setWorkTab(tabId) {
+    activeWorkTab = tabId;
+
     workTabs.forEach((tab) => {
       const active = tab.dataset.tab === tabId;
       tab.classList.toggle("is-active", active);
@@ -94,8 +137,10 @@
       workSubtabsWrap.classList.toggle("is-visible", tabId === "professional");
     }
 
+    refreshCreativeObserver();
+    refreshProfessionalObserver();
+
     if (tabId === "professional") {
-      loadProfessionalImages();
       filterProfessional("all");
     }
   }
@@ -121,6 +166,7 @@
     });
 
     observeProjects();
+    refreshProfessionalObserver();
   }
 
   workSubtabs.forEach((sub) => {
