@@ -1,15 +1,12 @@
 #!/bin/bash
-# Upload site + all photos to GitHub (needs Personal Access Token as password)
+# Push updates to GitHub Pages (use a Personal Access Token as password if asked)
 set -e
 cd "$(dirname "$0")"
 git remote set-url origin https://github.com/marissamak/portfolio.git
-echo "Pushing website + images to marissamak/portfolio..."
-echo "(When asked for password, paste a GitHub token — NOT your account password)"
-echo "Create token: https://github.com/settings/tokens → Generate classic → check 'repo'"
+echo "Pushing to marissamak/portfolio..."
+git push -u origin main
 echo ""
-git add index.html styles.css script.js .nojekyll images/
-git status --short | head -40
-git commit -m "Add all portfolio images" 2>/dev/null || echo "Nothing new to commit"
-git push origin main
+echo "Done! Wait 1–2 minutes, then open:"
+echo "  https://marissamak.github.io/portfolio/"
 echo ""
-echo "Done! Wait 2 minutes, then: https://marissamak.github.io/portfolio/"
+echo "Hard refresh: Cmd + Shift + R"
