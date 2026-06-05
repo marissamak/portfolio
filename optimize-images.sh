@@ -16,7 +16,8 @@ to_jpeg() {
   local dest="${base}.jpg"
   backup_once "$src"
   sips -s format jpeg -s formatOptions 82 -Z "$max" "$src" --out "$dest" >/dev/null
-  echo "  $src -> $dest ($(du -h "$dest" | cut -f1))"
+  sips -s format jpeg -s formatOptions 78 -Z 480 "$dest" --out "${base}-thumb.jpg" >/dev/null
+  echo "  $src -> $dest + thumb ($(du -h "$dest" | cut -f1) / $(du -h "${base}-thumb.jpg" | cut -f1))"
 }
 
 echo "Hero photo..."

@@ -9,6 +9,22 @@
   const workPanels = document.querySelectorAll(".work-panel");
   const workSubtabsWrap = document.querySelector(".work-subtabs");
   const projectCards = document.querySelectorAll(".project-card");
+  const professionalPanel = document.querySelector('[data-panel="professional"]');
+
+  function loadDeferredImages(root) {
+    if (!root) return;
+    root.querySelectorAll("img[data-src]:not([src])").forEach((img) => {
+      img.src = img.dataset.src;
+    });
+  }
+
+  let professionalImagesReady = false;
+
+  function loadProfessionalImages() {
+    if (professionalImagesReady) return;
+    loadDeferredImages(professionalPanel);
+    professionalImagesReady = true;
+  }
 
   /* Header scroll state */
   function onScroll() {
@@ -40,27 +56,27 @@
     });
   }
 
-  /* Don't download client-work images until that tab is opened */
-  const professionalPanel = document.querySelector('[data-panel="professional"]');
-  let professionalImagesReady = false;
+  /* Load each personal project row when it scrolls into view */
+  const creativeProjects = document.querySelectorAll(
+    ".creative-project img[data-src]"
+  );
 
-  function loadProfessionalImages() {
-    if (!professionalPanel || professionalImagesReady) return;
-    professionalPanel.querySelectorAll("img[data-src]").forEach((img) => {
-      img.src = img.dataset.src;
-    });
-    professionalImagesReady = true;
+  if (creativeProjects.length && "IntersectionObserver" in window) {
+    const projectObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          loadDeferredImages(entry.target.closest(".creative-project"));
+          projectObserver.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "120px 0px", threshold: 0.01 }
+    );
+
+    creativeProjects.forEach((img) => projectObserver.observe(img));
+  } else {
+    loadDeferredImages(document.querySelector('[data-panel="creative"]'));
   }
-
-  function deferProfessionalImages() {
-    if (!professionalPanel) return;
-    professionalPanel.querySelectorAll('img[src^="images/"]').forEach((img) => {
-      img.dataset.src = img.getAttribute("src");
-      img.removeAttribute("src");
-    });
-  }
-
-  deferProfessionalImages();
 
   /* Work tabs: creative vs professional */
   function setWorkTab(tabId) {
@@ -127,55 +143,52 @@
 
   revealEls.forEach((el) => revealObserver.observe(el));
 
-  /* Project cards stagger */
-  let projectObserver;
-
+  /* Project cards fade-in */
   function observeProjects() {
-    if (projectObserver) projectObserver.disconnect();
-
-    projectObserver = new IntersectionObserver(
+    const visible = document.querySelectorAll(
+      '.project-card:not([data-hidden="true"])'
+    );
+    const cardObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.target.dataset.hidden !== "true") {
+          if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
-            projectObserver.unobserve(entry.target);
+            cardObserver.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.08, rootMargin: "0px 0px -30px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -20px 0px" }
     );
 
-    projectCards.forEach((card) => {
-      if (card.dataset.hidden !== "true") {
-        card.classList.remove("is-visible");
-        projectObserver.observe(card);
+    visible.forEach((card) => {
+      if (!card.classList.contains("is-visible")) {
+        cardObserver.observe(card);
       }
     });
   }
 
   observeProjects();
-  setWorkTab("creative");
 
-  /* Floating button: show text fallback until image is uploaded */
+  /* Floating connect button fallback */
   const floatingConnect = document.getElementById("floating-connect");
   const connectImg = floatingConnect?.querySelector("img");
-  if (connectImg && floatingConnect) {
+
+  if (connectImg) {
     connectImg.addEventListener("error", () => {
-      connectImg.remove();
       floatingConnect.classList.add("is-fallback");
-      floatingConnect.textContent = "Connect with me!";
+      floatingConnect.innerHTML = "Connect<br>with me";
     });
-    if (connectImg.complete && connectImg.naturalWidth === 0) {
-      connectImg.dispatchEvent(new Event("error"));
-    }
   }
 
-  /* FormSubmit: show note before first send */
-  const connectForm = document.querySelector(".connect-form");
+  /* Form note visibility */
+  const form = document.querySelector(".connect-form");
   const formNote = document.getElementById("form-note");
-  if (connectForm && formNote) {
-    connectForm.addEventListener("submit", () => {
+
+  if (form && formNote) {
+    form.addEventListener("submit", () => {
       formNote.hidden = false;
     });
   }
+
+  setWorkTab("creative");
 })();
