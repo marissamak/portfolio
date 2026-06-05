@@ -8,42 +8,6 @@
   const workSubtabs = document.querySelectorAll(".work-subtab");
   const workPanels = document.querySelectorAll(".work-panel");
   const workSubtabsWrap = document.querySelector(".work-subtabs");
-  const professionalPanel = document.querySelector('[data-panel="professional"]');
-
-  let activeWorkTab = "creative";
-  let professionalObserver = null;
-
-  function loadImage(img) {
-    if (!img || img.src || !img.dataset.src) return;
-    img.src = img.dataset.src;
-  }
-
-  function observeProfessionalImages() {
-    if (professionalObserver) professionalObserver.disconnect();
-    if (!professionalPanel || activeWorkTab !== "professional") return;
-
-    const images = professionalPanel.querySelectorAll("img[data-src]:not([src])");
-    if (!images.length) return;
-
-    if (!("IntersectionObserver" in window)) {
-      images.forEach(loadImage);
-      return;
-    }
-
-    professionalObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          loadImage(entry.target);
-          professionalObserver.unobserve(entry.target);
-        });
-      },
-      { rootMargin: "200px 0px", threshold: 0.01 }
-    );
-
-    images.forEach((img) => professionalObserver.observe(img));
-  }
-
   /* Header scroll state */
   function onScroll() {
     if (!header) return;
@@ -76,8 +40,6 @@
 
   /* Work tabs */
   function setWorkTab(tabId) {
-    activeWorkTab = tabId;
-
     workTabs.forEach((tab) => {
       const active = tab.dataset.tab === tabId;
       tab.classList.toggle("is-active", active);
@@ -94,9 +56,6 @@
 
     if (tabId === "professional") {
       filterProfessional("all");
-      observeProfessionalImages();
-    } else if (professionalObserver) {
-      professionalObserver.disconnect();
     }
   }
 
@@ -118,9 +77,6 @@
       });
 
     observeProjects();
-    if (activeWorkTab === "professional") {
-      observeProfessionalImages();
-    }
   }
 
   workSubtabs.forEach((sub) => {

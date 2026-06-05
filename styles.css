@@ -473,10 +473,12 @@ ul {
 
 .work-panel {
   display: none;
+  content-visibility: hidden;
 }
 
 .work-panel.is-active {
   display: block;
+  content-visibility: visible;
 }
 
 .projects-grid {
