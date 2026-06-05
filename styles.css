@@ -396,6 +396,186 @@ ul {
   line-height: 1.65;
 }
 
+.work-jump-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.65rem;
+  margin-bottom: 2.5rem;
+}
+
+.work-jump-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: 0.55rem 1.05rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--white);
+  border: 1px solid var(--accent-dark);
+  border-radius: 999px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.work-jump-nav a:hover,
+.work-jump-nav a:focus-visible {
+  background: var(--bg-soft);
+  border-color: var(--text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.work-jump-nav a:active {
+  transform: translateY(1px);
+}
+
+.work-jump-nav a.is-active {
+  background: var(--text);
+  color: var(--white);
+  border-color: var(--text);
+  box-shadow: none;
+}
+
+.work-catalog {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 8vw, 4.5rem);
+}
+
+.work-category__title {
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--accent-dark);
+}
+
+.work-category__star {
+  color: var(--text);
+  opacity: 0.85;
+  margin-right: 0.15em;
+}
+
+.work-category__lead {
+  max-width: 36rem;
+  margin: -0.75rem 0 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.work-category__lead a {
+  color: var(--text);
+  font-weight: 400;
+  border-bottom: 1px solid var(--accent-dark);
+}
+
+.work-category__subtitle {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 2.5rem 0 1.25rem;
+}
+
+.case-study__name {
+  font-size: clamp(1.0625rem, 2.2vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.case-study__context {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.case-study__context a {
+  border-bottom: 1px solid var(--accent-dark);
+}
+
+.case-study--featured {
+  padding: 1.5rem 1.25rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--accent-dark);
+  border-radius: 4px;
+}
+
+.case-study__meta {
+  margin-top: 1.25rem;
+  max-width: 40rem;
+}
+
+.case-study__row {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.35rem 1rem;
+  padding: 0.65rem 0;
+  border-top: 1px solid var(--accent);
+}
+
+.case-study__row:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.case-study__meta dt {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.case-study__meta dd {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.web-screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(0.75rem, 2vw, 1rem);
+  margin-bottom: 0.25rem;
+}
+
+.web-screenshots-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--bg-soft);
+  border: 1px solid var(--accent);
+}
+
+.web-screenshots-grid--featured {
+  margin-bottom: 0.5rem;
+}
+
+.projects-grid--legacy {
+  margin-top: 0.5rem;
+}
+
+.legacy-case-study {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--accent-dark);
+  border-radius: 4px;
+}
+
 .featured-callout {
   margin-bottom: 2.5rem;
   padding: 1.5rem 1.35rem;
@@ -767,13 +947,8 @@ ul {
   margin-top: clamp(0.875rem, 2vw, 1.25rem);
 }
 
-.creative-project__desc {
+.creative-project .case-study__meta {
   margin-top: 1rem;
-  max-width: 36rem;
-  font-size: 0.875rem;
-  font-weight: 300;
-  color: var(--text-muted);
-  line-height: 1.7;
 }
 
 .project-card__swatches {
@@ -1116,6 +1291,15 @@ ul {
   .work-subtab {
     font-size: 0.8125rem;
     padding: 0.8rem 0.45rem;
+  }
+
+  .case-study__row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .web-screenshots-grid {
+    grid-template-columns: 1fr;
   }
 }
 

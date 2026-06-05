@@ -4,10 +4,7 @@
   const header = document.querySelector(".site-header");
   const menuToggle = document.querySelector(".menu-toggle");
   const navMobile = document.querySelector(".nav-mobile");
-  const workTabs = document.querySelectorAll(".work-tab");
-  const workSubtabs = document.querySelectorAll(".work-subtab");
-  const workPanels = document.querySelectorAll(".work-panel");
-  const workSubtabsWrap = document.querySelector(".work-subtabs");
+
   /* Header scroll state */
   function onScroll() {
     if (!header) return;
@@ -38,51 +35,6 @@
     });
   }
 
-  /* Work tabs */
-  function setWorkTab(tabId) {
-    workTabs.forEach((tab) => {
-      const active = tab.dataset.tab === tabId;
-      tab.classList.toggle("is-active", active);
-      tab.setAttribute("aria-selected", active ? "true" : "false");
-    });
-
-    workPanels.forEach((panel) => {
-      panel.classList.toggle("is-active", panel.dataset.panel === tabId);
-    });
-
-    if (workSubtabsWrap) {
-      workSubtabsWrap.classList.toggle("is-visible", tabId === "professional");
-    }
-
-    if (tabId === "professional") {
-      filterProfessional("all");
-    }
-  }
-
-  workTabs.forEach((tab) => {
-    tab.addEventListener("click", () => setWorkTab(tab.dataset.tab));
-  });
-
-  function filterProfessional(filter) {
-    workSubtabs.forEach((sub) => {
-      sub.classList.toggle("is-active", sub.dataset.filter === filter);
-    });
-
-    document
-      .querySelectorAll("[data-work='professional'][data-category]")
-      .forEach((item) => {
-        const category = item.dataset.category || "";
-        const show = filter === "all" || category === filter;
-        item.dataset.hidden = show ? "false" : "true";
-      });
-
-    observeProjects();
-  }
-
-  workSubtabs.forEach((sub) => {
-    sub.addEventListener("click", () => filterProfessional(sub.dataset.filter));
-  });
-
   /* Scroll reveal */
   const revealObserver = new IntersectionObserver(
     (entries) => {
@@ -98,30 +50,55 @@
 
   document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-  function observeProjects() {
-    const visible = document.querySelectorAll(
-      '.project-card:not([data-hidden="true"])'
-    );
-    const cardObserver = new IntersectionObserver(
+  /* Project cards fade-in */
+  const cardObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08, rootMargin: "0px 0px -20px 0px" }
+  );
+
+  document.querySelectorAll(".project-card, .case-study").forEach((card) => {
+    cardObserver.observe(card);
+  });
+
+  /* Work section jump nav highlight */
+  const workSections = document.querySelectorAll(".work-category[id]");
+  const workJumpLinks = document.querySelectorAll(".work-jump-nav a[href^='#']");
+
+  if (workSections.length && workJumpLinks.length) {
+    const setActiveJump = (id) => {
+      workJumpLinks.forEach((link) => {
+        link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
+      });
+    };
+
+    const workSpy = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            cardObserver.unobserve(entry.target);
-          }
-        });
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) {
+          setActiveJump(visible[0].target.id);
+        }
       },
-      { threshold: 0.08, rootMargin: "0px 0px -20px 0px" }
+      { rootMargin: "-12% 0px -58% 0px", threshold: [0, 0.15, 0.35, 0.55, 0.75] }
     );
 
-    visible.forEach((card) => {
-      if (!card.classList.contains("is-visible")) {
-        cardObserver.observe(card);
-      }
+    workSections.forEach((section) => workSpy.observe(section));
+
+    workJumpLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        const id = link.getAttribute("href")?.slice(1);
+        if (id) setActiveJump(id);
+      });
     });
   }
-
-  observeProjects();
 
   const floatingConnect = document.getElementById("floating-connect");
   const connectImg = floatingConnect?.querySelector("img");
@@ -141,17 +118,4 @@
       formNote.hidden = false;
     });
   }
-
-  document.querySelector(".featured-callout__cta")?.addEventListener("click", () => {
-    setWorkTab("professional");
-    filterProfessional("freelance-web");
-    const target = document.getElementById("hanabi-baking-studio");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-
-  setWorkTab("creative");
 })();

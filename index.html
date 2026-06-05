@@ -16,7 +16,7 @@
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   </noscript>
-  <link rel="stylesheet" href="styles.css?v=33">
+  <link rel="stylesheet" href="styles.css?v=35">
   <link rel="preload" as="image" href="images/my-pic.jpg" fetchpriority="high">
 </head>
 <body>
@@ -115,8 +115,7 @@
           <span class="section-label">Portfolio</span>
           <h2 class="section-title">Selected work</h2>
           <p class="work-header__lead">
-            Brand, web, and communications projects for clients and in-house teams.
-            Start with the featured build below, or browse by category.
+            Grouped by discipline so you can compare like with like. Start with the featured project, then browse brand, web, and marketing work.
           </p>
           <p class="work-portfolio-note">
             This is work approved for publication. I've delivered more than what's shown here;
@@ -124,554 +123,365 @@
           </p>
         </header>
 
-        <aside class="featured-callout reveal" aria-label="Featured project">
-          <span class="featured-callout__label">Featured project</span>
-          <h3 class="featured-callout__title">Hanabi Baking Studio</h3>
-          <p class="featured-callout__desc">
-            Custom bilingual website coded from scratch for a Hong Kong baking studio.
-            Traditional Chinese layout, class booking flow, and brand-led UI built to help
-            a small business look established online.
-          </p>
-          <button type="button" class="featured-callout__cta" data-jump-work="freelance-web">
-            View featured project
-          </button>
-        </aside>
+        <nav class="work-jump-nav reveal" aria-label="Jump to work categories">
+          <a href="#hanabi-featured">Featured</a>
+          <a href="#brand-identity">Brand identity</a>
+          <a href="#web-development">Web</a>
+          <a href="#marketing-comms">Marketing</a>
+        </nav>
 
-        <div class="work-nav">
-          <p class="work-nav__hint">Tap a category to browse</p>
-          <div class="work-tabs" role="tablist" aria-label="Work categories">
-            <button class="work-tab is-active" type="button" data-tab="creative" role="tab" aria-selected="true">
-              <span class="work-tab__label">Personal projects</span>
-              <span class="work-tab__sub">Brand &amp; packaging projects</span>
-            </button>
-            <button class="work-tab" type="button" data-tab="professional" role="tab" aria-selected="false">
-              <span class="work-tab__label">Client work</span>
-              <span class="work-tab__sub">Freelance &amp; not-for-profit</span>
-            </button>
-          </div>
-        </div>
+        <div class="work-catalog">
 
-        <div class="work-subtabs" role="tablist" aria-label="Professional work filters">
-          <button class="work-subtab is-active" type="button" data-filter="all">All client work</button>
-          <button class="work-subtab" type="button" data-filter="freelance-web">Freelance web and design</button>
-          <button class="work-subtab" type="button" data-filter="nonprofit">Not-for-profit</button>
-        </div>
+          <section class="work-category reveal" id="hanabi-featured">
+            <h3 class="work-category__title"><span class="work-category__star" aria-hidden="true">★</span> Featured project · Hanabi Baking Studio</h3>
+            <article class="case-study case-study--featured project-card">
+              <h4 class="case-study__name">Hanabi Baking Studio</h4>
+              <p class="case-study__context">Freelance · Web design &amp; development · Hong Kong</p>
+              <div class="web-screenshots-grid web-screenshots-grid--featured">
+                <img src="images/hanabi-baking-studio-01.jpg" alt="Hanabi Baking Studio website, About" loading="lazy" decoding="async">
+                <img src="images/hanabi-baking-studio-02.jpg" alt="Hanabi Baking Studio website, Why choose us" loading="lazy" decoding="async">
+                <img src="images/hanabi-baking-studio-03.jpg" alt="Hanabi Baking Studio website, Courses" loading="lazy" decoding="async">
+                <img src="images/hanabi-baking-studio-04.jpg" alt="Hanabi Baking Studio website, Contact" loading="lazy" decoding="async">
+              </div>
+              <dl class="case-study__meta">
+                <div class="case-study__row">
+                  <dt>Goal</dt>
+                  <dd>Build a bilingual website that positions a Hong Kong baking studio as credible, approachable, and easy to book.</dd>
+                </div>
+                <div class="case-study__row">
+                  <dt>Deliverables</dt>
+                  <dd>Custom HTML, CSS, and JavaScript site, Traditional Chinese layout, course pages, contact flow, mobile-responsive UI.</dd>
+                </div>
+                <div class="case-study__row">
+                  <dt>Outcome</dt>
+                  <dd>Live site supporting class discovery, enquiry paths, and a professional brand presence for an international client.</dd>
+                </div>
+              </dl>
+            </article>
+          </section>
 
-        <!-- Creative Projects -->
-        <div class="work-panel is-active" data-panel="creative">
-          <div class="creative-list">
-            <article class="creative-project project-card" data-work="creative">
-              <h3 class="creative-project__title">Gather &amp; Ground</h3>
-              <div class="creative-project__images">
-              <img src="images/creative-gather-and-ground-01.jpg" alt="Gather & Ground brand identity, view 1" loading="lazy" decoding="async">
-              <img src="images/creative-gather-and-ground-02.jpg" alt="Gather & Ground brand identity, view 2" loading="lazy" decoding="async">
-              <img src="images/creative-gather-and-ground-03.jpg" alt="Gather & Ground brand identity, view 3" loading="lazy" decoding="async">
-              </div>
-              <div class="project-card__swatches" role="list" aria-label="Brand colours">
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#6b705c" style="background:#6b705c"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#a5a58d" style="background:#a5a58d"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#d4a373" style="background:#d4a373"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#f5f5f0" style="background:#f5f5f0"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#cb997e" style="background:#cb997e"></span>
-              </div>
-              <p class="creative-project__desc">
-                Built a grounded festival identity for a Melbourne movement and music event,
-                with dusty greens and warm browns applied across posters, wristbands, signage,
-                and merch for a cohesive on-site experience.
-              </p>
-            </article>
-            <article class="creative-project project-card" data-work="creative">
-              <h3 class="creative-project__title">Yoke.</h3>
-              <div class="creative-project__images">
-              <img src="images/creative-yoke-01.jpg" alt="Yoke yoga studio visual identity, view 1" loading="lazy" decoding="async">
-              <img src="images/creative-yoke-02.jpg" alt="Yoke yoga studio visual identity, view 2" loading="lazy" decoding="async">
-              <img src="images/creative-yoke-03.jpg" alt="Yoke yoga studio visual identity, view 3" loading="lazy" decoding="async">
-              </div>
-              <div class="project-card__swatches" role="list" aria-label="Brand colours">
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#dfdcd0" style="background:#dfdcd0"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#595754" style="background:#595754"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#eeeae3" style="background:#eeeae3"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#ada9a2" style="background:#ada9a2"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#807e79" style="background:#807e79"></span>
-              </div>
-              <p class="creative-project__desc">
-                Developed a calm, minimal identity for a boutique Sydney yoga studio aimed at
-                wellness-focused professionals, using quiet neutrals, simple type, and a
-                hand-drawn mortar and pestle mark.
-              </p>
-            </article>
-            <article class="creative-project project-card" data-work="creative">
-              <h3 class="creative-project__title">Leaf &amp; Bean</h3>
-              <div class="creative-project__images">
-              <img src="images/creative-leaf-and-bean-01.jpg" alt="Leaf & Bean café brand identity, view 1" loading="lazy" decoding="async">
-              <img src="images/creative-leaf-and-bean-02.jpg" alt="Leaf & Bean café brand identity, view 2" loading="lazy" decoding="async">
-              <img src="images/creative-leaf-and-bean-03.jpg" alt="Leaf & Bean café brand identity, view 3" loading="lazy" decoding="async">
-              </div>
-              <div class="project-card__swatches" role="list" aria-label="Brand colours">
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#818874" style="background:#818874"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#211c16" style="background:#211c16"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#c5ac8a" style="background:#c5ac8a"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#656147" style="background:#656147"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#dad2ce" style="background:#dad2ce"></span>
-              </div>
-              <p class="creative-project__desc">
-                Created a sustainability-led café brand with sage greens and kraft textures
-                rolled out across packaging, menus, and in-store signage for a consistent
-                customer touchpoint.
-              </p>
-            </article>
-            <article class="creative-project project-card" data-work="creative">
-              <h3 class="creative-project__title">Bloom Booch</h3>
-              <div class="creative-project__images">
-              <img src="images/creative-bloom-booch-01.jpg" alt="Bloom Booch kombucha brand identity, view 1" loading="lazy" decoding="async">
-              <img src="images/creative-bloom-booch-02.jpg" alt="Bloom Booch kombucha brand identity, view 2" loading="lazy" decoding="async">
-              <img src="images/creative-bloom-booch-03.jpg" alt="Bloom Booch kombucha brand identity, view 3" loading="lazy" decoding="async">
-              </div>
-              <div class="project-card__swatches" role="list" aria-label="Brand colours">
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#f26767" style="background:#f26767"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#f4a259" style="background:#f4a259"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#a35ca4" style="background:#a35ca4"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#a8c686" style="background:#a8c686"></span>
-              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#f5f1eb" style="background:#f5f1eb"></span>
-              </div>
-              <p class="creative-project__desc">
-                Designed shelf-ready packaging and identity for a small-batch kombucha brand,
-                using bright fruit tones, hand-drawn details, and bold type to stand out in
-                a crowded retail category.
-              </p>
-            </article>
-          </div>
-        </div>
+          <section class="work-category reveal" id="brand-identity">
+            <h3 class="work-category__title">Brand Identity</h3>
+            <div class="creative-list">
 
-        <!-- Professional Work -->
-        <div class="work-panel" data-panel="professional">
-          <div class="projects-grid">
-            <article class="project-card" data-work="professional" data-category="freelance-web">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/daphnes-artistry-1.jpg"
-                    alt="Daphne's Artistry website, Homepage"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+              <article class="creative-project project-card">
+                <h4 class="creative-project__title">Gather &amp; Ground</h4>
+                <div class="creative-project__images">
+                  <img src="images/creative-gather-and-ground-01.jpg" alt="Gather & Ground brand identity, view 1" loading="lazy" decoding="async">
+                  <img src="images/creative-gather-and-ground-02.jpg" alt="Gather & Ground brand identity, view 2" loading="lazy" decoding="async">
+                  <img src="images/creative-gather-and-ground-03.jpg" alt="Gather & Ground brand identity, view 3" loading="lazy" decoding="async">
                 </div>
-                <p class="project-card__category">Freelance · Web Design &amp; Development</p>
-                <h3 class="project-card__title">Daphne's Artistry</h3>
-                <p class="project-card__desc project-card__desc--full">
-                  Designed and built a custom site for a freelance makeup artist to present
-                  services clearly, drive bookings, and showcase portfolio work without relying
-                  on a template look.
-                </p>
-                <a
-                  class="project-card__site"
-                  href="https://daphnesartistry.com.au/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >Visit live site</a>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="freelance-web">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/daphnes-artistry-2.jpg"
-                    alt="Daphne's Artistry website, Booking"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+                <div class="project-card__swatches" role="list" aria-label="Brand colours">
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#6b705c" style="background:#6b705c"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#a5a58d" style="background:#a5a58d"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#d4a373" style="background:#d4a373"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#f5f5f0" style="background:#f5f5f0"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#cb997e" style="background:#cb997e"></span>
                 </div>
-                <p class="project-card__category">Freelance · Web Design &amp; Development</p>
-                <h3 class="project-card__title">Daphne's Artistry</h3>
-                <p class="project-card__desc">Structured booking and service pages so clients can choose offerings and enquire without friction.</p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="freelance-web">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/daphnes-artistry-3.jpg"
-                    alt="Daphne's Artistry website, Gallery"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+                <dl class="case-study__meta">
+                  <div class="case-study__row">
+                    <dt>Goal</dt>
+                    <dd>Create a festival identity that feels grounded, warm, and credible for a movement and music event in Melbourne.</dd>
+                  </div>
+                  <div class="case-study__row">
+                    <dt>Deliverables</dt>
+                    <dd>Logo, posters, wristbands, signage, merch applications.</dd>
+                  </div>
+                  <div class="case-study__row">
+                    <dt>Outcome</dt>
+                    <dd>Cohesive on-site brand system across print and environmental touchpoints.</dd>
+                  </div>
+                </dl>
+              </article>
+
+              <article class="creative-project project-card">
+                <h4 class="creative-project__title">Leaf &amp; Bean</h4>
+                <div class="creative-project__images">
+                  <img src="images/creative-leaf-and-bean-01.jpg" alt="Leaf & Bean café brand identity, view 1" loading="lazy" decoding="async">
+                  <img src="images/creative-leaf-and-bean-02.jpg" alt="Leaf & Bean café brand identity, view 2" loading="lazy" decoding="async">
+                  <img src="images/creative-leaf-and-bean-03.jpg" alt="Leaf & Bean café brand identity, view 3" loading="lazy" decoding="async">
                 </div>
-                <p class="project-card__category">Freelance · Web Design &amp; Development</p>
-                <h3 class="project-card__title">Daphne's Artistry</h3>
-                <p class="project-card__desc">Gallery layout focused on before-and-after work to build trust with new enquiries.</p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="freelance-web">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/daphnes-artistry-4.jpg?v=2"
-                    alt="Daphne's Artistry website, Portfolio gallery"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+                <div class="project-card__swatches" role="list" aria-label="Brand colours">
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#818874" style="background:#818874"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#211c16" style="background:#211c16"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#c5ac8a" style="background:#c5ac8a"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#656147" style="background:#656147"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#dad2ce" style="background:#dad2ce"></span>
                 </div>
-                <p class="project-card__category">Freelance · Web Design &amp; Development</p>
-                <h3 class="project-card__title">Daphne's Artistry</h3>
-                <p class="project-card__desc">Homepage carousel and social call-to-action to keep the brand active beyond the website.</p>
-              </div>
-            </article>
-            <article class="project-card project-card--featured" id="hanabi-baking-studio" data-work="professional" data-category="freelance-web">
-              <div class="project-card__body">
-                <p class="project-card__featured-tag">Featured project</p>
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/hanabi-baking-studio-01.jpg"
-                    alt="Hanabi Baking Studio website, About"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+                <dl class="case-study__meta">
+                  <div class="case-study__row">
+                    <dt>Goal</dt>
+                    <dd>Position a plant-based café as sustainable, approachable, and memorable in a competitive food scene.</dd>
+                  </div>
+                  <div class="case-study__row">
+                    <dt>Deliverables</dt>
+                    <dd>Logo, packaging, menus, in-store signage.</dd>
+                  </div>
+                  <div class="case-study__row">
+                    <dt>Outcome</dt>
+                    <dd>Consistent touchpoints across physical and customer-facing materials.</dd>
+                  </div>
+                </dl>
+              </article>
+
+              <article class="creative-project project-card">
+                <h4 class="creative-project__title">Bloom Booch</h4>
+                <div class="creative-project__images">
+                  <img src="images/creative-bloom-booch-01.jpg" alt="Bloom Booch kombucha brand identity, view 1" loading="lazy" decoding="async">
+                  <img src="images/creative-bloom-booch-02.jpg" alt="Bloom Booch kombucha brand identity, view 2" loading="lazy" decoding="async">
+                  <img src="images/creative-bloom-booch-03.jpg" alt="Bloom Booch kombucha brand identity, view 3" loading="lazy" decoding="async">
                 </div>
-                <p class="project-card__category">Freelance · Web Design &amp; Development</p>
-                <h3 class="project-card__title">Hanabi Baking Studio</h3>
-                <p class="project-card__desc project-card__desc--full">
-                  Designed and coded a bilingual website from scratch for a Hong Kong baking
-                  studio (花日烘焙教室), with Traditional Chinese layout, class information,
-                  and a structure built to support bookings and studio credibility.
-                </p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="freelance-web">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/hanabi-baking-studio-02.jpg"
-                    alt="Hanabi Baking Studio website, Why choose us"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+                <div class="project-card__swatches" role="list" aria-label="Brand colours">
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#f26767" style="background:#f26767"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#f4a259" style="background:#f4a259"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#a35ca4" style="background:#a35ca4"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#a8c686" style="background:#a8c686"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#f5f1eb" style="background:#f5f1eb"></span>
                 </div>
-                <p class="project-card__category">Freelance · Web Design &amp; Development</p>
-                <h3 class="project-card__title">Hanabi Baking Studio</h3>
-                <p class="project-card__desc">Benefits section highlighting studio location, class size, and reasons to book.</p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="freelance-web">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/hanabi-baking-studio-03.jpg"
-                    alt="Hanabi Baking Studio website, Courses"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+                <dl class="case-study__meta">
+                  <div class="case-study__row">
+                    <dt>Goal</dt>
+                    <dd>Stand out on shelf with a kombucha brand that reads playful, fresh, and premium-batch.</dd>
+                  </div>
+                  <div class="case-study__row">
+                    <dt>Deliverables</dt>
+                    <dd>Packaging, label system, brand marks, colour palette.</dd>
+                  </div>
+                  <div class="case-study__row">
+                    <dt>Outcome</dt>
+                    <dd>Retail-ready identity built for shelf impact and brand recall.</dd>
+                  </div>
+                </dl>
+              </article>
+
+              <article class="creative-project project-card">
+                <h4 class="creative-project__title">Yoke.</h4>
+                <div class="creative-project__images">
+                  <img src="images/creative-yoke-01.jpg" alt="Yoke yoga studio visual identity, view 1" loading="lazy" decoding="async">
+                  <img src="images/creative-yoke-02.jpg" alt="Yoke yoga studio visual identity, view 2" loading="lazy" decoding="async">
+                  <img src="images/creative-yoke-03.jpg" alt="Yoke yoga studio visual identity, view 3" loading="lazy" decoding="async">
                 </div>
-                <p class="project-card__category">Freelance · Web Design &amp; Development</p>
-                <h3 class="project-card__title">Hanabi Baking Studio</h3>
-                <p class="project-card__desc">Courses grid with schedules and clear paths to enquiry for high-intent visitors.</p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="freelance-web">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/hanabi-baking-studio-04.jpg"
-                    alt="Hanabi Baking Studio website, Contact"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+                <div class="project-card__swatches" role="list" aria-label="Brand colours">
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#dfdcd0" style="background:#dfdcd0"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#595754" style="background:#595754"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#eeeae3" style="background:#eeeae3"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#ada9a2" style="background:#ada9a2"></span>
+                  <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#807e79" style="background:#807e79"></span>
                 </div>
-                <p class="project-card__category">Freelance · Web Design &amp; Development</p>
-                <h3 class="project-card__title">Hanabi Baking Studio</h3>
-                <p class="project-card__desc">Contact page tying WhatsApp, social channels, and studio details into one conversion point.</p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="freelance-web">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/private-client-deck-01.jpg"
-                    alt="Private client business deck, achievements overview"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
-                </div>
-                <p class="project-card__category">Freelance · Design</p>
-                <h3 class="project-card__title">Private client business deck</h3>
-                <p class="project-card__desc project-card__desc--full">
-                  Presentation design for a confidential logistics client, turning complex
-                  operations data into a clear, investor-ready deck with consistent branding.
-                </p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="freelance-web">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/private-client-deck-02.jpg"
-                    alt="Private client business deck, jobs per month chart"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
-                </div>
-                <p class="project-card__category">Freelance · Design</p>
-                <h3 class="project-card__title">Private client business deck</h3>
-                <p class="project-card__desc">Growth chart slide translating monthly performance into targets leadership could act on.</p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="freelance-web">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/private-client-deck-03.jpg"
-                    alt="Private client business deck, core business needs"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
-                </div>
-                <p class="project-card__category">Freelance · Design</p>
-                <h3 class="project-card__title">Private client business deck</h3>
-                <p class="project-card__desc">Needs summary slide aligning operational pain points with proposed solutions.</p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="freelance-web">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/private-client-deck-04.jpg"
-                    alt="Private client business deck, target market"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
-                </div>
-                <p class="project-card__category">Freelance · Design</p>
-                <h3 class="project-card__title">Private client business deck</h3>
-                <p class="project-card__desc">Market slide framing airline client opportunity for executive stakeholders.</p>
-              </div>
-            </article>
-            <div
-              class="legacy-case-study"
-              data-work="professional"
-              data-category="nonprofit"
-            >
-              <span class="legacy-case-study__label">In-house experience</span>
-              <h3 class="legacy-case-study__title">Legacy Brisbane · Marketing &amp; Communications</h3>
-              <p class="legacy-case-study__desc">
-                Nearly two years in-house managing marketing and communications: fundraising
-                campaigns, website updates, reports, stakeholder decks, social, and event
-                collateral. I worked across teams, deadlines, and brand standards, not just
-                one-off graphics. Below is a sample of work from that role.
-              </p>
+                <dl class="case-study__meta">
+                  <div class="case-study__row">
+                    <dt>Goal</dt>
+                    <dd>Create a calming identity for a boutique yoga studio targeting wellness-focused professionals.</dd>
+                  </div>
+                  <div class="case-study__row">
+                    <dt>Deliverables</dt>
+                    <dd>Logo, stationery, signage, pricing collateral.</dd>
+                  </div>
+                  <div class="case-study__row">
+                    <dt>Outcome</dt>
+                    <dd>Cohesive brand system designed for print and digital touchpoints.</dd>
+                  </div>
+                </dl>
+              </article>
+
             </div>
-            <article class="project-card" data-work="professional" data-category="nonprofit">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/nonprofit-11.jpg"
-                    alt="Legacy Brisbane, Bridge to Brisbane"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
-                </div>
-                <p class="project-card__category">In-house · Legacy Brisbane</p>
-                <h3 class="project-card__title">Bridge to Brisbane</h3>
-                <p class="project-card__desc project-card__desc--full">
-                  Social creative for Queensland's annual 10km community walk, supporting
-                  mass-participation fundraising and event sign-ups.
-                </p>
+          </section>
+
+          <section class="work-category reveal" id="web-development">
+            <h3 class="work-category__title">Web Design &amp; Development</h3>
+            <p class="work-category__lead">
+              Custom sites built from scratch or tailored to the brief.
+              <a href="#hanabi-featured">Hanabi Baking Studio</a> is featured above.
+            </p>
+
+            <article class="case-study project-card">
+              <h4 class="case-study__name">Daphne's Artistry</h4>
+              <p class="case-study__context">Freelance · Australia · <a href="https://daphnesartistry.com.au/" target="_blank" rel="noopener noreferrer">Visit live site</a></p>
+              <div class="web-screenshots-grid">
+                <img src="images/daphnes-artistry-1.jpg" alt="Daphne's Artistry website, Homepage" loading="lazy" decoding="async">
+                <img src="images/daphnes-artistry-2.jpg" alt="Daphne's Artistry website, Booking" loading="lazy" decoding="async">
+                <img src="images/daphnes-artistry-3.jpg" alt="Daphne's Artistry website, Gallery" loading="lazy" decoding="async">
+                <img src="images/daphnes-artistry-4.jpg?v=2" alt="Daphne's Artistry website, Portfolio gallery" loading="lazy" decoding="async">
               </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="nonprofit">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/nonprofit-08.jpg"
-                    alt="Legacy Brisbane, Theory of Change"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+              <dl class="case-study__meta">
+                <div class="case-study__row">
+                  <dt>Goal</dt>
+                  <dd>Turn a freelance makeup artistry practice into a credible online presence that drives booking enquiries.</dd>
                 </div>
-                <p class="project-card__category">In-house · Legacy Brisbane</p>
-                <h3 class="project-card__title">Theory of Change</h3>
-                <p class="project-card__desc project-card__desc--full">
-                  Stakeholder-facing Theory of Change diagram explaining how the Family Assist
-                  program creates long-term impact.
-                </p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="nonprofit">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/nonprofit-05.jpg"
-                    alt="Legacy Brisbane, Bring it Home"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+                <div class="case-study__row">
+                  <dt>Deliverables</dt>
+                  <dd>Custom website, service pages, booking flow, portfolio gallery, mobile-responsive build.</dd>
                 </div>
-                <p class="project-card__category">In-house · Legacy Brisbane</p>
-                <h3 class="project-card__title">Bring it Home</h3>
-                <p class="project-card__desc project-card__desc--full">Capital campaign creative for Legacy House, with progress messaging toward a $9M build goal.</p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="nonprofit">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/nonprofit-09.jpg"
-                    alt="Legacy Brisbane, Queensland reach"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+                <div class="case-study__row">
+                  <dt>Outcome</dt>
+                  <dd>Live site that presents services clearly, showcases work, and supports enquiries without a generic template look.</dd>
                 </div>
-                <p class="project-card__category">In-house · Legacy Brisbane</p>
-                <h3 class="project-card__title">Queensland reach</h3>
-                <p class="project-card__desc project-card__desc--full">Infographic translating statewide service reach into clear public messaging and impact numbers.</p>
-              </div>
+              </dl>
             </article>
-            <article class="project-card" data-work="professional" data-category="nonprofit">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/nonprofit-12.jpg"
-                    alt="Legacy Brisbane, Remembrance Day"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+
+          </section>
+
+          <section class="work-category reveal" id="marketing-comms">
+            <h3 class="work-category__title">Marketing &amp; Communications</h3>
+
+            <article class="case-study legacy-case-study">
+              <span class="legacy-case-study__label">In-house role</span>
+              <h4 class="case-study__name">Legacy Brisbane</h4>
+              <dl class="case-study__meta">
+                <div class="case-study__row">
+                  <dt>Goal</dt>
+                  <dd>Support fundraising, stakeholder communication, and brand consistency for a national not-for-profit.</dd>
                 </div>
-                <p class="project-card__category">In-house · Legacy Brisbane</p>
-                <h3 class="project-card__title">Remembrance Day</h3>
-                <p class="project-card__desc project-card__desc--full">Remembrance Day social creative driving awareness and traffic to legacy.com.au/remember.</p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="nonprofit">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/nonprofit-06.jpg"
-                    alt="Legacy Brisbane, Legacy Sports Brunch"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+                <div class="case-study__row">
+                  <dt>Deliverables</dt>
+                  <dd>Campaign creative, social, reports, event collateral, web banners, internal decks, website updates.</dd>
                 </div>
-                <p class="project-card__category">In-house · Legacy Brisbane</p>
-                <h3 class="project-card__title">Legacy Sports Brunch</h3>
-                <p class="project-card__desc project-card__desc--full">Event promotion for a ticketed sports brunch, with speaker, date, and venue details upfront.</p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="nonprofit">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/nonprofit-03.jpg"
-                    alt="Legacy Brisbane, Gift in your Will"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+                <div class="case-study__row">
+                  <dt>Outcome</dt>
+                  <dd>Nearly two years in-house delivering multi-channel comms across fundraising cycles, events, and leadership reporting.</dd>
                 </div>
-                <p class="project-card__category">In-house · Legacy Brisbane</p>
-                <h3 class="project-card__title">Gift in your Will</h3>
-                <p class="project-card__desc project-card__desc--full">Web banner supporting bequest messaging for long-term fundraising pipeline growth.</p>
-              </div>
+              </dl>
             </article>
-            <article class="project-card" data-work="professional" data-category="nonprofit">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/nonprofit-04.jpg"
-                    alt="Legacy Brisbane, Legacy Giving Day"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+
+            <div class="projects-grid projects-grid--legacy">
+              <article class="project-card">
+                <div class="project-card__body">
+                  <div class="project-card__image project-card__image--screenshot">
+                    <img src="images/nonprofit-11.jpg" alt="Legacy Brisbane, Bridge to Brisbane" loading="lazy" decoding="async">
+                  </div>
+                  <h4 class="project-card__title">Bridge to Brisbane</h4>
+                  <p class="project-card__desc project-card__desc--full">Social creative for Queensland's annual 10km community walk, supporting mass-participation fundraising and event sign-ups.</p>
                 </div>
-                <p class="project-card__category">In-house · Legacy Brisbane</p>
-                <h3 class="project-card__title">Legacy Giving Day</h3>
-                <p class="project-card__desc project-card__desc--full">Giving Day creative with matched donation tiers to lift urgency and average gift size.</p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="nonprofit">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/nonprofit-02.jpg"
-                    alt="Legacy Brisbane, Facebook launch"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+              </article>
+              <article class="project-card">
+                <div class="project-card__body">
+                  <div class="project-card__image project-card__image--screenshot">
+                    <img src="images/nonprofit-08.jpg" alt="Legacy Brisbane, Theory of Change" loading="lazy" decoding="async">
+                  </div>
+                  <h4 class="project-card__title">Theory of Change</h4>
+                  <p class="project-card__desc project-card__desc--full">Stakeholder-facing diagram explaining how the Family Assist program creates long-term impact.</p>
                 </div>
-                <p class="project-card__category">In-house · Legacy Brisbane</p>
-                <h3 class="project-card__title">Facebook launch</h3>
-                <p class="project-card__desc project-card__desc--full">Launch banner driving followers to the new Legacy in Queensland Facebook channel.</p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="nonprofit">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/nonprofit-07.jpg"
-                    alt="Legacy Brisbane, Trivia Night"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+              </article>
+              <article class="project-card">
+                <div class="project-card__body">
+                  <div class="project-card__image project-card__image--screenshot">
+                    <img src="images/nonprofit-05.jpg" alt="Legacy Brisbane, Bring it Home" loading="lazy" decoding="async">
+                  </div>
+                  <h4 class="project-card__title">Bring it Home</h4>
+                  <p class="project-card__desc project-card__desc--full">Capital campaign creative for Legacy House, with progress messaging toward a $9M build goal.</p>
                 </div>
-                <p class="project-card__category">In-house · Legacy Brisbane</p>
-                <h3 class="project-card__title">Trivia Night</h3>
-                <p class="project-card__desc project-card__desc--full">Event promo for the Emerging Leaders Network trivia night, focused on attendance and community building.</p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="nonprofit">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/nonprofit-10.jpg"
-                    alt="Legacy Brisbane, Canungra Combat Challenge"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+              </article>
+              <article class="project-card">
+                <div class="project-card__body">
+                  <div class="project-card__image project-card__image--screenshot">
+                    <img src="images/nonprofit-09.jpg" alt="Legacy Brisbane, Queensland reach" loading="lazy" decoding="async">
+                  </div>
+                  <h4 class="project-card__title">Queensland reach</h4>
+                  <p class="project-card__desc project-card__desc--full">Infographic translating statewide service reach into clear public messaging and impact numbers.</p>
                 </div>
-                <p class="project-card__category">In-house · Legacy Brisbane</p>
-                <h3 class="project-card__title">Canungra Combat Challenge</h3>
-                <p class="project-card__desc project-card__desc--full">Participant guide for the C3 obstacle fundraiser, making event rules and fundraising steps easy to follow.</p>
-              </div>
-            </article>
-            <article class="project-card" data-work="professional" data-category="nonprofit">
-              <div class="project-card__body">
-                <div class="project-card__image project-card__image--screenshot">
-                  <img
-                    src="images/nonprofit-01.jpg"
-                    alt="Legacy Brisbane, Beneficiary birthday card"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                  >
+              </article>
+              <article class="project-card">
+                <div class="project-card__body">
+                  <div class="project-card__image project-card__image--screenshot">
+                    <img src="images/nonprofit-12.jpg" alt="Legacy Brisbane, Remembrance Day" loading="lazy" decoding="async">
+                  </div>
+                  <h4 class="project-card__title">Remembrance Day</h4>
+                  <p class="project-card__desc project-card__desc--full">Remembrance Day social creative driving awareness and traffic to legacy.com.au/remember.</p>
                 </div>
-                <p class="project-card__category">In-house · Legacy Brisbane</p>
-                <h3 class="project-card__title">Beneficiary birthday card</h3>
-                <p class="project-card__desc project-card__desc--full">
-                  Printed birthday card for Legacy beneficiaries, designed to feel personal
-                  and on-brand at a sensitive touchpoint.
-                </p>
+              </article>
+              <article class="project-card">
+                <div class="project-card__body">
+                  <div class="project-card__image project-card__image--screenshot">
+                    <img src="images/nonprofit-06.jpg" alt="Legacy Brisbane, Legacy Sports Brunch" loading="lazy" decoding="async">
+                  </div>
+                  <h4 class="project-card__title">Legacy Sports Brunch</h4>
+                  <p class="project-card__desc project-card__desc--full">Event promotion for a ticketed sports brunch, with speaker, date, and venue details upfront.</p>
+                </div>
+              </article>
+              <article class="project-card">
+                <div class="project-card__body">
+                  <div class="project-card__image project-card__image--screenshot">
+                    <img src="images/nonprofit-03.jpg" alt="Legacy Brisbane, Gift in your Will" loading="lazy" decoding="async">
+                  </div>
+                  <h4 class="project-card__title">Gift in your Will</h4>
+                  <p class="project-card__desc project-card__desc--full">Web banner supporting bequest messaging for long-term fundraising pipeline growth.</p>
+                </div>
+              </article>
+              <article class="project-card">
+                <div class="project-card__body">
+                  <div class="project-card__image project-card__image--screenshot">
+                    <img src="images/nonprofit-04.jpg" alt="Legacy Brisbane, Legacy Giving Day" loading="lazy" decoding="async">
+                  </div>
+                  <h4 class="project-card__title">Legacy Giving Day</h4>
+                  <p class="project-card__desc project-card__desc--full">Giving Day creative with matched donation tiers to lift urgency and average gift size.</p>
+                </div>
+              </article>
+              <article class="project-card">
+                <div class="project-card__body">
+                  <div class="project-card__image project-card__image--screenshot">
+                    <img src="images/nonprofit-02.jpg" alt="Legacy Brisbane, Facebook launch" loading="lazy" decoding="async">
+                  </div>
+                  <h4 class="project-card__title">Facebook launch</h4>
+                  <p class="project-card__desc project-card__desc--full">Launch banner driving followers to the new Legacy in Queensland Facebook channel.</p>
+                </div>
+              </article>
+              <article class="project-card">
+                <div class="project-card__body">
+                  <div class="project-card__image project-card__image--screenshot">
+                    <img src="images/nonprofit-07.jpg" alt="Legacy Brisbane, Trivia Night" loading="lazy" decoding="async">
+                  </div>
+                  <h4 class="project-card__title">Trivia Night</h4>
+                  <p class="project-card__desc project-card__desc--full">Event promo for the Emerging Leaders Network trivia night, focused on attendance and community building.</p>
+                </div>
+              </article>
+              <article class="project-card">
+                <div class="project-card__body">
+                  <div class="project-card__image project-card__image--screenshot">
+                    <img src="images/nonprofit-10.jpg" alt="Legacy Brisbane, Canungra Combat Challenge" loading="lazy" decoding="async">
+                  </div>
+                  <h4 class="project-card__title">Canungra Combat Challenge</h4>
+                  <p class="project-card__desc project-card__desc--full">Participant guide for the C3 obstacle fundraiser, making event rules and fundraising steps easy to follow.</p>
+                </div>
+              </article>
+              <article class="project-card">
+                <div class="project-card__body">
+                  <div class="project-card__image project-card__image--screenshot">
+                    <img src="images/nonprofit-01.jpg" alt="Legacy Brisbane, Beneficiary birthday card" loading="lazy" decoding="async">
+                  </div>
+                  <h4 class="project-card__title">Beneficiary birthday card</h4>
+                  <p class="project-card__desc project-card__desc--full">Printed birthday card for Legacy beneficiaries, designed to feel personal and on-brand at a sensitive touchpoint.</p>
+                </div>
+              </article>
+            </div>
+
+            <h4 class="work-category__subtitle">Presentation design</h4>
+            <article class="case-study project-card">
+              <h4 class="case-study__name">Private client business deck</h4>
+              <p class="case-study__context">Freelance · Confidential logistics client</p>
+              <div class="web-screenshots-grid">
+                <img src="images/private-client-deck-01.jpg" alt="Private client business deck, achievements overview" loading="lazy" decoding="async">
+                <img src="images/private-client-deck-02.jpg" alt="Private client business deck, jobs per month chart" loading="lazy" decoding="async">
+                <img src="images/private-client-deck-03.jpg" alt="Private client business deck, core business needs" loading="lazy" decoding="async">
+                <img src="images/private-client-deck-04.jpg" alt="Private client business deck, target market" loading="lazy" decoding="async">
               </div>
+              <dl class="case-study__meta">
+                <div class="case-study__row">
+                  <dt>Goal</dt>
+                  <dd>Present complex operations data to stakeholders in a clear, investor-ready format.</dd>
+                </div>
+                <div class="case-study__row">
+                  <dt>Deliverables</dt>
+                  <dd>Multi-slide deck, charts, brand styling, narrative structure.</dd>
+                </div>
+                <div class="case-study__row">
+                  <dt>Outcome</dt>
+                  <dd>Deck that frames growth, pain points, and market opportunity for executive decision-making.</dd>
+                </div>
+              </dl>
             </article>
-          </div>
+
+          </section>
+
         </div>
       </div>
     </section>
@@ -778,6 +588,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-  <script src="script.js?v=8"></script>
+  <script src="script.js?v=10"></script>
 </body>
 </html>
