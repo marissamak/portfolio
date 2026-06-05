@@ -386,6 +386,16 @@ ul {
   line-height: 1.75;
 }
 
+.work-portfolio-note {
+  max-width: 36rem;
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
 .featured-callout {
   margin-bottom: 2.5rem;
   padding: 1.5rem 1.35rem;

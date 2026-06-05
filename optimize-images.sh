@@ -20,19 +20,19 @@ to_jpeg() {
 
 echo "Hero photo..."
 backup_once "my-pic.jpg"
-sips -Z 1680 -s formatOptions 88 my-pic.jpg >/dev/null
+sips -Z 1400 -s formatOptions 90 my-pic.jpg >/dev/null
 echo "  my-pic.jpg ($(du -h my-pic.jpg | cut -f1))"
 
-echo "Creative projects (1400px)..."
+echo "Creative projects (1200px, high quality)..."
 for f in creative-*.png; do
   [[ -f "$f" ]] || continue
-  to_jpeg "$f" 1400 90
+  to_jpeg "$f" 1200 92
 done
 
-echo "Client + NFP work (1960px, sharp screenshots)..."
+echo "Client + NFP work (1600px, high quality)..."
 for f in daphnes-artistry-*.png hanabi-baking-studio-*.png private-client-deck-*.png nonprofit-*.png; do
   [[ -f "$f" ]] || continue
-  to_jpeg "$f" 1960 90
+  to_jpeg "$f" 1600 92
 done
 
 echo "Connect button (PNG)..."
