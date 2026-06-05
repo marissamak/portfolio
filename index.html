@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Marissa Mak, web and graphic designer. Branding, websites, and design for clients across industries.">
+  <meta name="description" content="Marissa Mak, web and graphic designer. Branding, websites, and graphics. Send a brief and work with me on your next project.">
   <title>Marissa Mak | Web & Graphic Designer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=22">
+  <link rel="stylesheet" href="styles.css?v=23">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -46,10 +46,13 @@
           <p class="hero-location">Brisbane, Australia · Moving to Sydney soon</p>
           <h1 class="hero-title">Marissa<br>Mak</h1>
           <p class="hero-lead">
-            Seven years in design. I help brands look like themselves, whether that's a logo,
-            a website, or the rest of the visual stuff around it.
+            Seven years in design. I help brands look like themselves through logos, websites,
+            and everything around them. Got something in mind? Send a brief and let's work on it together.
           </p>
-          <a class="hero-cta" href="#work">See my work</a>
+          <div class="hero-actions">
+            <a class="hero-cta" href="#connect">Work with me</a>
+            <a class="hero-cta hero-cta--secondary" href="#work">See my work</a>
+          </div>
         </div>
         <div class="hero-photo reveal">
           <img
@@ -86,10 +89,10 @@
             GitHub Pages deploys are all in the mix.
           </p>
           <p>
-            I like working with people who know roughly what they want and are happy to chat
-            things through. I'm in Brisbane right now and moving to Sydney soon, happy to work
-            locally or remote. If you've got a rebrand, a website, or just one thing that needs
-            designing properly, say hi.
+            I like clients who know roughly what they want and are happy to chat things through.
+            I'm in Brisbane right now and moving to Sydney soon, open to local and remote work.
+            Planning a rebrand, a new site, or one piece of design? Send a brief or a quick hello.
+            I'd love to hear what you're working on.
           </p>
         </div>
       </div>
@@ -101,10 +104,11 @@
         <header class="work-header reveal">
           <span class="section-label">Portfolio</span>
           <h2 class="section-title">Have a look around</h2>
+          <p class="work-header__lead">A sample of past projects. When something fits what you need, send a brief and we can talk.</p>
         </header>
 
         <div class="work-nav">
-          <p class="work-nav__hint">Tap a category to see the work</p>
+          <p class="work-nav__hint">Tap a category to browse</p>
           <div class="work-tabs" role="tablist" aria-label="Work categories">
             <button class="work-tab is-active" type="button" data-tab="creative" role="tab" aria-selected="true">
               <span class="work-tab__label">Personal projects</span>
@@ -632,6 +636,10 @@
         <div class="reveal">
           <span class="section-label">Skills</span>
           <h2 class="section-title">What I bring to your project</h2>
+          <p class="skills-intro">
+            Here's how I can help on your next job. Like what you see in the portfolio?
+            Send a brief with your goals and timeline and we'll take it from there.
+          </p>
         </div>
         <div class="skills-grid">
           <div class="skill-item reveal">
@@ -665,7 +673,10 @@
           </div>
           <div class="skill-item reveal">
             <h3>Collaboration</h3>
-            <p>Freelance clients, agencies, and in-house teams. I adapt to your timeline, brand, and goals.</p>
+            <p>
+              Freelance clients, agencies, and in-house teams. Clear updates from brief to delivery.
+              Tell me what you need and we'll figure out the rest together.
+            </p>
           </div>
         </div>
       </div>
@@ -675,10 +686,12 @@
     <section class="section connect" id="connect">
       <div class="section-inner reveal">
         <span class="section-label">Connect</span>
-        <h2 class="section-title">Connect with me</h2>
+        <h2 class="section-title">Let's work together</h2>
         <p class="connect-lead">
-          Thanks for scrolling through my work. Send a message below and it goes straight to
-          <a href="mailto:marissamak2022@gmail.com">marissamak2022@gmail.com</a>.
+          Send a brief, a rough idea, or a full outline. Share your project, timeline, and budget
+          if you have one. It goes straight to
+          <a href="mailto:marissamak2022@gmail.com">marissamak2022@gmail.com</a>
+          and I'll get back to you.
         </p>
         <form
           class="connect-form"
@@ -689,8 +702,8 @@
           <input type="hidden" name="_template" value="table">
           <input type="text" name="name" autocomplete="name" placeholder="Name" required>
           <input type="email" name="email" autocomplete="email" placeholder="Email" required>
-          <textarea name="message" rows="8" placeholder="Your message"></textarea>
-          <button type="submit" class="connect-form__submit">Send message</button>
+          <textarea name="message" rows="8" placeholder="Tell me about your project, goals, and timeline"></textarea>
+          <button type="submit" class="connect-form__submit">Send my brief</button>
         </form>
         <p class="connect-form__note" id="form-note" hidden>
           On your first submission, FormSubmit may ask you to confirm your email. Check your inbox.
@@ -707,7 +720,7 @@
   </footer>
 
   <!-- Floating connect button: upload image to images/connect-button.png -->
-  <a href="#connect" class="floating-connect" id="floating-connect" aria-label="Connect with me">
+  <a href="#connect" class="floating-connect" id="floating-connect" aria-label="Send a brief and work with me">
     <img
       src="images/connect-button.png"
       alt=""

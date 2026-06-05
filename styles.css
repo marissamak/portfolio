@@ -277,6 +277,13 @@ ul {
   margin-bottom: 1.75rem;
 }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 1.75rem;
+}
+
 .hero-cta {
   display: inline-block;
   font-size: 0.75rem;
@@ -288,7 +295,13 @@ ul {
   transition: opacity 0.25s;
 }
 
-.hero-cta:hover {
+.hero-cta--secondary {
+  opacity: 0.55;
+  border-bottom-color: var(--accent-dark);
+}
+
+.hero-cta:hover,
+.hero-cta--secondary:hover {
   opacity: 0.65;
 }
 
@@ -335,6 +348,14 @@ ul {
 /* Work */
 .work-header {
   margin-bottom: 2rem;
+}
+
+.work-header__lead {
+  max-width: 32rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.75;
 }
 
 .work-nav {
@@ -677,6 +698,15 @@ ul {
 /* Skills */
 .skills {
   background: var(--bg-soft);
+}
+
+.skills-intro {
+  max-width: 36rem;
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.75;
 }
 
 .skills-grid {
