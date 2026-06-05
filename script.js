@@ -142,5 +142,16 @@
     });
   }
 
+  document.querySelector(".featured-callout__cta")?.addEventListener("click", () => {
+    setWorkTab("professional");
+    filterProfessional("freelance-web");
+    const target = document.getElementById("hanabi-baking-studio");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+
   setWorkTab("creative");
 })();
