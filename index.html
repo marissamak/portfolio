@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Marissa Mak — Web & Graphic Designer. Brand identity, wellness-focused design, and purpose-led creative work.">
+  <title>Marissa Mak — Web & Graphic Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">Marissa Mak</a>
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#connect">Connect</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-mobile" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav id="nav-mobile" class="nav-mobile" aria-label="Mobile">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#connect">Connect</a>
+  </nav>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Web &amp; Graphic Designer</p>
+        <h1 class="hero-title">Marissa<br>Mak</h1>
+        <p class="hero-lead">
+          I create calm, clear, and intentional visuals for wellness-focused brands,
+          mindful businesses, and purpose-led projects.
+        </p>
+        <a class="hero-scroll" href="#about">Scroll</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about">
+      <div class="section-inner about-grid">
+        <div class="about-image-wrap reveal">
+          <!-- Replace src with your photo: images/about/marissa.jpg -->
+          <img
+            src="images/about/my-pic.jpg"
+            alt="Marissa Mak"
+            width="800"
+            height="1000"
+            loading="lazy"
+          >
+        </div>
+        <div class="about-text reveal">
+          <span class="section-label">About Me</span>
+          <h2 class="section-title">Design with softness and purpose</h2>
+          <p>
+            Hi! I'm Marissa — a graphic designer with five years of experience and a passion
+            for wellness, creativity, and making visuals that feel calm, clear, and intentional.
+          </p>
+          <p>
+            I got my start in uni saying yes to every creative project I could, and that hobby
+            eventually grew into a proper freelance career. I have experience working full-time
+            in marketing and comms at a not-for-profit, where part of my job includes designing
+            everything from fundraising campaigns to websites, reports, and decks.
+          </p>
+          <p>
+            My design style is shaped by my own mental health journey — practices like meditation
+            and movement helped me heal, and that sense of softness and purpose flows into the
+            way I create. I'm especially passionate about working with wellness-focused brands,
+            mindful businesses, and purpose-led projects.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section class="section work" id="work">
+      <div class="section-inner">
+        <header class="work-header reveal">
+          <span class="section-label">Portfolio</span>
+          <h2 class="section-title">Selected work</h2>
+        </header>
+
+        <div class="work-tabs reveal" role="tablist" aria-label="Work categories">
+          <button class="work-tab is-active" type="button" data-tab="creative" role="tab" aria-selected="true">
+            Creative Projects
+          </button>
+          <button class="work-tab" type="button" data-tab="professional" role="tab" aria-selected="false">
+            Professional Work
+          </button>
+        </div>
+
+        <div class="work-subtabs" role="tablist" aria-label="Professional work filters">
+          <button class="work-subtab is-active" type="button" data-filter="all">All</button>
+          <button class="work-subtab" type="button" data-filter="freelance-web">Freelance — Web Design</button>
+          <button class="work-subtab" type="button" data-filter="nonprofit">Not-for-Profit</button>
+        </div>
+
+        <!-- Creative Projects -->
+        <div class="work-panel is-active" data-panel="creative">
+          <div class="creative-list">
+            <article class="creative-project project-card" data-work="creative">
+              <h3 class="creative-project__title">Gather &amp; Ground</h3>
+              <div class="creative-project__images">
+              <img src="images/projects/creative/gather-and-ground/01.png" alt="Gather & Ground brand identity — view 1" width="800" height="1067" loading="lazy">
+              <img src="images/projects/creative/gather-and-ground/02.png" alt="Gather & Ground brand identity — view 2" width="800" height="1067" loading="lazy">
+              <img src="images/projects/creative/gather-and-ground/03.png" alt="Gather & Ground brand identity — view 3" width="800" height="1067" loading="lazy">
+              </div>
+              <div class="project-card__swatches" role="list" aria-label="Brand colours">
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#6b705c" style="background:#6b705c"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#a5a58d" style="background:#a5a58d"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#d4a373" style="background:#d4a373"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#f5f5f0" style="background:#f5f5f0"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#cb997e" style="background:#cb997e"></span>
+              </div>
+              <p class="creative-project__desc">Brand identity for Melbourne's first movement and music festival — earthy neutrals, sun motifs, and calming sage tones for a warm, premium, grounded experience.</p>
+            </article>
+            <article class="creative-project project-card" data-work="creative">
+              <h3 class="creative-project__title">Yoke.</h3>
+              <div class="creative-project__images">
+              <img src="images/projects/creative/yoke/01.png" alt="Yoke yoga studio visual identity — view 1" width="800" height="1067" loading="lazy">
+              <img src="images/projects/creative/yoke/02.png" alt="Yoke yoga studio visual identity — view 2" width="800" height="1067" loading="lazy">
+              <img src="images/projects/creative/yoke/03.png" alt="Yoke yoga studio visual identity — view 3" width="800" height="1067" loading="lazy">
+              </div>
+              <div class="project-card__swatches" role="list" aria-label="Brand colours">
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#dfdcd0" style="background:#dfdcd0"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#595754" style="background:#595754"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#eeeae3" style="background:#eeeae3"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#ada9a2" style="background:#ada9a2"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#807e79" style="background:#807e79"></span>
+              </div>
+              <p class="creative-project__desc">Visual identity for a contemporary Sydney yoga studio — soft neutrals, minimal typography, and a hand-drawn mortar and pestle icon symbolising ritual and care.</p>
+            </article>
+            <article class="creative-project project-card" data-work="creative">
+              <h3 class="creative-project__title">Leaf &amp; Bean</h3>
+              <div class="creative-project__images">
+              <img src="images/projects/creative/leaf-and-bean/01.png" alt="Leaf & Bean café brand identity — view 1" width="800" height="1067" loading="lazy">
+              <img src="images/projects/creative/leaf-and-bean/02.png" alt="Leaf & Bean café brand identity — view 2" width="800" height="1067" loading="lazy">
+              <img src="images/projects/creative/leaf-and-bean/03.png" alt="Leaf & Bean café brand identity — view 3" width="800" height="1067" loading="lazy">
+              </div>
+              <div class="project-card__swatches" role="list" aria-label="Brand colours">
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#818874" style="background:#818874"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#211c16" style="background:#211c16"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#c5ac8a" style="background:#c5ac8a"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#656147" style="background:#656147"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#dad2ce" style="background:#dad2ce"></span>
+              </div>
+              <p class="creative-project__desc">Visual identity for a vegan café rooted in sustainability — sage greens, kraft textures, and cohesive packaging, menus, and signage.</p>
+            </article>
+            <article class="creative-project project-card" data-work="creative">
+              <h3 class="creative-project__title">Bloom Booch</h3>
+              <div class="creative-project__images">
+              <img src="images/projects/creative/bloom-booch/01.png" alt="Bloom Booch kombucha brand identity — view 1" width="800" height="1067" loading="lazy">
+              <img src="images/projects/creative/bloom-booch/02.png" alt="Bloom Booch kombucha brand identity — view 2" width="800" height="1067" loading="lazy">
+              <img src="images/projects/creative/bloom-booch/03.png" alt="Bloom Booch kombucha brand identity — view 3" width="800" height="1067" loading="lazy">
+              </div>
+              <div class="project-card__swatches" role="list" aria-label="Brand colours">
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#f26767" style="background:#f26767"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#f4a259" style="background:#f4a259"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#a35ca4" style="background:#a35ca4"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#a8c686" style="background:#a8c686"></span>
+              <span class="project-card__swatch" role="listitem" tabindex="0" data-hex="#f5f1eb" style="background:#f5f1eb"></span>
+              </div>
+              <p class="creative-project__desc">Playful probiotic kombucha branding — vibrant fruity hues, hand-drawn elements, and bold typography for a fun, fresh, and confidently modern identity.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Professional Work -->
+        <div class="work-panel" data-panel="professional">
+          <div class="projects-grid">
+            <article class="project-card" data-work="professional" data-category="freelance-web">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/daphnes-artistry-1.png"
+                    alt="Daphne's Artistry website — Homepage"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Freelance — Web Design</p>
+                <h3 class="project-card__title">Daphne's Artistry</h3>
+                <p class="project-card__desc">Custom website design and development for a freelance artistry brand.</p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="freelance-web">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/daphnes-artistry-2.png"
+                    alt="Daphne's Artistry website — Booking"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Freelance — Web Design</p>
+                <h3 class="project-card__title">Daphne's Artistry</h3>
+                <p class="project-card__desc">Integrated booking flow and service pages tailored to the client.</p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="freelance-web">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/daphnes-artistry-3.png"
+                    alt="Daphne's Artistry website — Gallery"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Freelance — Web Design</p>
+                <h3 class="project-card__title">Daphne's Artistry</h3>
+                <p class="project-card__desc">Visual gallery layout showcasing portfolio work and brand aesthetic.</p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="nonprofit">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/nonprofit-01.png"
+                    alt="Not-for-profit marketing and comms design"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Not-for-Profit</p>
+                <h3 class="project-card__title">Marketing &amp; Comms</h3>
+                <p class="project-card__desc">
+                  Design from my not-for-profit role — campaigns, fundraising assets, reports, decks, and digital comms.
+                </p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="nonprofit">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/nonprofit-02.png"
+                    alt="Not-for-profit marketing and comms design"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Not-for-Profit</p>
+                <h3 class="project-card__title">Marketing &amp; Comms</h3>
+                <p class="project-card__desc">
+                  Design from my not-for-profit role — campaigns, fundraising assets, reports, decks, and digital comms.
+                </p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="nonprofit">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/nonprofit-03.png"
+                    alt="Not-for-profit marketing and comms design"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Not-for-Profit</p>
+                <h3 class="project-card__title">Marketing &amp; Comms</h3>
+                <p class="project-card__desc">
+                  Design from my not-for-profit role — campaigns, fundraising assets, reports, decks, and digital comms.
+                </p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="nonprofit">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/nonprofit-04.png"
+                    alt="Not-for-profit marketing and comms design"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Not-for-Profit</p>
+                <h3 class="project-card__title">Marketing &amp; Comms</h3>
+                <p class="project-card__desc">
+                  Design from my not-for-profit role — campaigns, fundraising assets, reports, decks, and digital comms.
+                </p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="nonprofit">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/nonprofit-05.png"
+                    alt="Not-for-profit marketing and comms design"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Not-for-Profit</p>
+                <h3 class="project-card__title">Marketing &amp; Comms</h3>
+                <p class="project-card__desc">
+                  Design from my not-for-profit role — campaigns, fundraising assets, reports, decks, and digital comms.
+                </p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="nonprofit">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/nonprofit-06.png"
+                    alt="Not-for-profit marketing and comms design"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Not-for-Profit</p>
+                <h3 class="project-card__title">Marketing &amp; Comms</h3>
+                <p class="project-card__desc">
+                  Design from my not-for-profit role — campaigns, fundraising assets, reports, decks, and digital comms.
+                </p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="nonprofit">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/nonprofit-07.png"
+                    alt="Not-for-profit marketing and comms design"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Not-for-Profit</p>
+                <h3 class="project-card__title">Marketing &amp; Comms</h3>
+                <p class="project-card__desc">
+                  Design from my not-for-profit role — campaigns, fundraising assets, reports, decks, and digital comms.
+                </p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="nonprofit">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/nonprofit-08.png"
+                    alt="Not-for-profit marketing and comms design"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Not-for-Profit</p>
+                <h3 class="project-card__title">Marketing &amp; Comms</h3>
+                <p class="project-card__desc">
+                  Design from my not-for-profit role — campaigns, fundraising assets, reports, decks, and digital comms.
+                </p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="nonprofit">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/nonprofit-09.png"
+                    alt="Not-for-profit marketing and comms design"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Not-for-Profit</p>
+                <h3 class="project-card__title">Marketing &amp; Comms</h3>
+                <p class="project-card__desc">
+                  Design from my not-for-profit role — campaigns, fundraising assets, reports, decks, and digital comms.
+                </p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="nonprofit">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/nonprofit-10.png"
+                    alt="Not-for-profit marketing and comms design"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Not-for-Profit</p>
+                <h3 class="project-card__title">Marketing &amp; Comms</h3>
+                <p class="project-card__desc">
+                  Design from my not-for-profit role — campaigns, fundraising assets, reports, decks, and digital comms.
+                </p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="nonprofit">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/nonprofit-11.png"
+                    alt="Not-for-profit marketing and comms design"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Not-for-Profit</p>
+                <h3 class="project-card__title">Marketing &amp; Comms</h3>
+                <p class="project-card__desc">
+                  Design from my not-for-profit role — campaigns, fundraising assets, reports, decks, and digital comms.
+                </p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="nonprofit">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/nonprofit-12.png"
+                    alt="Not-for-profit marketing and comms design"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Not-for-Profit</p>
+                <h3 class="project-card__title">Marketing &amp; Comms</h3>
+                <p class="project-card__desc">
+                  Design from my not-for-profit role — campaigns, fundraising assets, reports, decks, and digital comms.
+                </p>
+              </a>
+            </article>
+            <article class="project-card" data-work="professional" data-category="nonprofit">
+              <a class="project-card__link" href="#">
+                <div class="project-card__image project-card__image--screenshot">
+                  <img
+                    src="images/projects/professional/nonprofit-13.png"
+                    alt="Not-for-profit marketing and comms design"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                  >
+                </div>
+                <p class="project-card__category">Not-for-Profit</p>
+                <h3 class="project-card__title">Marketing &amp; Comms</h3>
+                <p class="project-card__desc">
+                  Design from my not-for-profit role — campaigns, fundraising assets, reports, decks, and digital comms.
+                </p>
+              </a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section skills" id="skills">
+      <div class="section-inner">
+        <div class="reveal">
+          <span class="section-label">Skills</span>
+          <h2 class="section-title">What I bring to your project</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-item reveal">
+            <h3>Brand Identity</h3>
+            <p>Logos, visual systems, colour palettes, and brand guidelines that feel cohesive and intentional.</p>
+          </div>
+          <div class="skill-item reveal">
+            <h3>Web Design</h3>
+            <p>Clean, responsive layouts with a focus on clarity, accessibility, and calm user experience.</p>
+          </div>
+          <div class="skill-item reveal">
+            <h3>Graphic Design</h3>
+            <p>Print and digital collateral — campaigns, social assets, reports, decks, and signage.</p>
+          </div>
+          <div class="skill-item reveal">
+            <h3>Marketing &amp; Comms</h3>
+            <p>Fundraising campaigns, NFP communications, and purpose-led messaging across channels.</p>
+          </div>
+          <div class="skill-item reveal">
+            <h3>Tools</h3>
+            <p>Adobe Creative Suite, Figma, Canva, and presentation tools for end-to-end delivery.</p>
+          </div>
+          <div class="skill-item reveal">
+            <h3>Specialty</h3>
+            <p>Wellness, mindful business, and brands that value softness, authenticity, and visual calm.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect -->
+    <section class="section connect" id="connect">
+      <div class="section-inner reveal">
+        <span class="section-label">Connect</span>
+        <h2 class="section-title">Connect with me</h2>
+        <p class="connect-lead">
+          Thanks for scrolling through my work. Send a message below — it goes straight to
+          <a href="mailto:marissamak2022@gmail.com">marissamak2022@gmail.com</a>.
+        </p>
+        <form
+          class="connect-form"
+          action="https://formsubmit.co/marissamak2022@gmail.com"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="New portfolio message">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="name" autocomplete="name" placeholder="Name" required>
+          <input type="email" name="email" autocomplete="email" placeholder="Email" required>
+          <textarea name="message" rows="8" placeholder="Your message"></textarea>
+          <button type="submit" class="connect-form__submit">Send message</button>
+        </form>
+        <p class="connect-form__note" id="form-note" hidden>
+          On your first submission, FormSubmit may ask you to confirm your email — check your inbox.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span id="year"></span> Marissa Mak</span>
+      <span>Web &amp; Graphic Designer</span>
+    </div>
+  </footer>
+
+  <!-- Floating connect button — upload image to images/connect-button.png -->
+  <a href="#connect" class="floating-connect" id="floating-connect" aria-label="Connect with me">
+    <img
+      src="images/connect-button.png"
+      alt=""
+      width="220"
+      height="220"
+    >
+  </a>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
