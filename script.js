@@ -43,7 +43,9 @@
   /* Work tabs: creative vs professional */
   function setWorkTab(tabId) {
     workTabs.forEach((tab) => {
-      tab.classList.toggle("is-active", tab.dataset.tab === tabId);
+      const active = tab.dataset.tab === tabId;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", active ? "true" : "false");
     });
 
     workPanels.forEach((panel) => {
@@ -69,11 +71,14 @@
       sub.classList.toggle("is-active", sub.dataset.filter === filter);
     });
 
-    projectCards.forEach((card) => {
-      if (card.dataset.work !== "professional") return;
-      const category = card.dataset.category || "";
+    const professionalItems = document.querySelectorAll(
+      "[data-work='professional'][data-category]"
+    );
+
+    professionalItems.forEach((item) => {
+      const category = item.dataset.category || "";
       const show = filter === "all" || category === filter;
-      card.dataset.hidden = show ? "false" : "true";
+      item.dataset.hidden = show ? "false" : "true";
     });
 
     observeProjects();
