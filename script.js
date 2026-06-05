@@ -9,84 +9,39 @@
   const workPanels = document.querySelectorAll(".work-panel");
   const workSubtabsWrap = document.querySelector(".work-subtabs");
   const professionalPanel = document.querySelector('[data-panel="professional"]');
-  const creativePanel = document.querySelector('[data-panel="creative"]');
-  const workSection = document.getElementById("work");
 
   let activeWorkTab = "creative";
-  let workSectionVisible = false;
-  let loadQueue = Promise.resolve();
-
-  function loadImage(img) {
-    if (!img || img.src || !img.dataset.src) return Promise.resolve();
-    return new Promise((resolve) => {
-      const onDone = () => {
-        img.removeEventListener("load", onDone);
-        img.removeEventListener("error", onDone);
-        resolve();
-      };
-      img.addEventListener("load", onDone);
-      img.addEventListener("error", onDone);
-      img.src = img.dataset.src;
-    });
-  }
-
-  function enqueueImage(img) {
-    loadQueue = loadQueue.then(() => loadImage(img));
-  }
-
-  function observeLazyImages(root, enabled) {
-    if (!root || !("IntersectionObserver" in window)) return null;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting || !enabled()) return;
-          enqueueImage(entry.target);
-          observer.unobserve(entry.target);
-        });
-      },
-      { rootMargin: "40px 0px", threshold: 0.08 }
-    );
-
-    root.querySelectorAll("img[data-src]:not([src])").forEach((img) => {
-      observer.observe(img);
-    });
-
-    return observer;
-  }
-
-  let creativeObserver = null;
   let professionalObserver = null;
 
-  function refreshCreativeObserver() {
-    if (creativeObserver) creativeObserver.disconnect();
-    if (!workSectionVisible || activeWorkTab !== "creative") return;
-    creativeObserver = observeLazyImages(creativePanel, () => workSectionVisible && activeWorkTab === "creative");
+  function loadImage(img) {
+    if (!img || img.src || !img.dataset.src) return;
+    img.src = img.dataset.src;
   }
 
-  function refreshProfessionalObserver() {
+  function observeProfessionalImages() {
     if (professionalObserver) professionalObserver.disconnect();
-    if (!workSectionVisible || activeWorkTab !== "professional") return;
-    professionalObserver = observeLazyImages(
-      professionalPanel,
-      () => workSectionVisible && activeWorkTab === "professional"
-    );
-  }
+    if (!professionalPanel || activeWorkTab !== "professional") return;
 
-  if (workSection && "IntersectionObserver" in window) {
-    const workObserver = new IntersectionObserver(
+    const images = professionalPanel.querySelectorAll("img[data-src]:not([src])");
+    if (!images.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      images.forEach(loadImage);
+      return;
+    }
+
+    professionalObserver = new IntersectionObserver(
       (entries) => {
-        workSectionVisible = entries[0].isIntersecting;
-        if (!workSectionVisible) return;
-        refreshCreativeObserver();
-        refreshProfessionalObserver();
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          loadImage(entry.target);
+          professionalObserver.unobserve(entry.target);
+        });
       },
-      { threshold: 0.05, rootMargin: "0px 0px 10% 0px" }
+      { rootMargin: "200px 0px", threshold: 0.01 }
     );
-    workObserver.observe(workSection);
-  } else {
-    workSectionVisible = true;
-    refreshCreativeObserver();
+
+    images.forEach((img) => professionalObserver.observe(img));
   }
 
   /* Header scroll state */
@@ -119,7 +74,7 @@
     });
   }
 
-  /* Work tabs: creative vs professional */
+  /* Work tabs */
   function setWorkTab(tabId) {
     activeWorkTab = tabId;
 
@@ -137,11 +92,11 @@
       workSubtabsWrap.classList.toggle("is-visible", tabId === "professional");
     }
 
-    refreshCreativeObserver();
-    refreshProfessionalObserver();
-
     if (tabId === "professional") {
       filterProfessional("all");
+      observeProfessionalImages();
+    } else if (professionalObserver) {
+      professionalObserver.disconnect();
     }
   }
 
@@ -149,24 +104,23 @@
     tab.addEventListener("click", () => setWorkTab(tab.dataset.tab));
   });
 
-  /* Professional sub-filters */
   function filterProfessional(filter) {
     workSubtabs.forEach((sub) => {
       sub.classList.toggle("is-active", sub.dataset.filter === filter);
     });
 
-    const professionalItems = document.querySelectorAll(
-      "[data-work='professional'][data-category]"
-    );
-
-    professionalItems.forEach((item) => {
-      const category = item.dataset.category || "";
-      const show = filter === "all" || category === filter;
-      item.dataset.hidden = show ? "false" : "true";
-    });
+    document
+      .querySelectorAll("[data-work='professional'][data-category]")
+      .forEach((item) => {
+        const category = item.dataset.category || "";
+        const show = filter === "all" || category === filter;
+        item.dataset.hidden = show ? "false" : "true";
+      });
 
     observeProjects();
-    refreshProfessionalObserver();
+    if (activeWorkTab === "professional") {
+      observeProfessionalImages();
+    }
   }
 
   workSubtabs.forEach((sub) => {
@@ -174,7 +128,6 @@
   });
 
   /* Scroll reveal */
-  const revealEls = document.querySelectorAll(".reveal");
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -187,9 +140,8 @@
     { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
   );
 
-  revealEls.forEach((el) => revealObserver.observe(el));
+  document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-  /* Project cards fade-in */
   function observeProjects() {
     const visible = document.querySelectorAll(
       '.project-card:not([data-hidden="true"])'
@@ -215,7 +167,6 @@
 
   observeProjects();
 
-  /* Floating connect button fallback */
   const floatingConnect = document.getElementById("floating-connect");
   const connectImg = floatingConnect?.querySelector("img");
 
@@ -226,7 +177,6 @@
     });
   }
 
-  /* Form note visibility */
   const form = document.querySelector(".connect-form");
   const formNote = document.getElementById("form-note");
 

@@ -630,14 +630,6 @@ ul {
   background: var(--accent);
 }
 
-.creative-project__images img:not([src]) {
-  visibility: hidden;
-}
-
-.project-card__image img:not([src]) {
-  visibility: hidden;
-}
-
 .creative-project .project-card__swatches {
   margin-top: clamp(0.875rem, 2vw, 1.25rem);
 }
