@@ -1,32 +1,37 @@
-# Fix missing photos (one upload)
+# Fix missing photos
 
-GitHub only has `connect-button.png`. You need the rest of the `images` folder.
+Your site code is correct. GitHub is only missing the image files.
 
-## Easiest: upload in 3 small batches
+## Best fix — one push (all 30+ photos at once)
+
+1. Create a token: https://github.com/settings/tokens → **Generate new token (classic)** → check **repo** → Generate → copy `ghp_...`
+
+2. In Terminal:
+
+```bash
+cd ~/Documents/GitHub/bymarissamak
+./deploy.sh
+```
+
+3. Username: `marissamak`  
+   Password: paste the **token** (not your GitHub password)
+
+4. Wait 2–3 minutes, then hard refresh: https://marissamak.github.io/portfolio/
+
+Test: https://marissamak.github.io/portfolio/images/about/my-pic.jpg should show your photo (not 404).
+
+---
+
+## No token? Upload on GitHub (3 batches)
 
 Open: https://github.com/marissamak/portfolio/upload/main
 
-### Batch 1 — About photo
-Drag from your Mac: `Documents/GitHub/bymarissamak/images/about/`  
-(needs `my-pic.jpg` inside)
+Drag folders from **`Documents/GitHub/bymarissamak/images`** (not DROP-ON-GITHUB):
 
-### Batch 2 — Creative projects
-Drag: `Documents/GitHub/bymarissamak/images/projects/creative/`  
-(folders: `gather-and-ground`, `yoke`, `leaf-and-bean`, `bloom-booch` — each with `01.png`, `02.png`, `03.png`)
+| Batch | Drag this folder |
+|-------|------------------|
+| 1 | `images/about` |
+| 2 | `images/projects/creative` |
+| 3 | `images/projects/professional` |
 
-### Batch 3 — Professional work
-Drag: `Documents/GitHub/bymarissamak/images/projects/professional/`  
-(all `daphnes-artistry-*.png` and `nonprofit-*.png` files)
-
-After each batch: **Commit changes**. Wait 2 minutes. Hard refresh the site.
-
-## Or: one folder drag
-
-Drag the whole folder: `Documents/GitHub/bymarissamak/DROP-ON-GITHUB/images`  
-into the GitHub upload page (may take a few minutes — ~44 MB).
-
-## Check it worked
-
-This link should show your photo (not “404”):
-
-https://marissamak.github.io/portfolio/images/about/my-pic.jpg
+Commit after each batch. Paths on GitHub must be `images/about/...` not `DROP-ON-GITHUB/...`.

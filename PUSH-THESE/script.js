@@ -40,28 +40,6 @@
     });
   }
 
-  /* Don't download client-work images until that tab is opened */
-  const professionalPanel = document.querySelector('[data-panel="professional"]');
-  let professionalImagesReady = false;
-
-  function loadProfessionalImages() {
-    if (!professionalPanel || professionalImagesReady) return;
-    professionalPanel.querySelectorAll("img[data-src]").forEach((img) => {
-      img.src = img.dataset.src;
-    });
-    professionalImagesReady = true;
-  }
-
-  function deferProfessionalImages() {
-    if (!professionalPanel) return;
-    professionalPanel.querySelectorAll('img[src^="images/"]').forEach((img) => {
-      img.dataset.src = img.getAttribute("src");
-      img.removeAttribute("src");
-    });
-  }
-
-  deferProfessionalImages();
-
   /* Work tabs: creative vs professional */
   function setWorkTab(tabId) {
     workTabs.forEach((tab) => {
@@ -79,7 +57,6 @@
     }
 
     if (tabId === "professional") {
-      loadProfessionalImages();
       filterProfessional("all");
     }
   }
