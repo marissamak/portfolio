@@ -576,19 +576,21 @@ ul {
 
 .web-screenshots-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: clamp(0.5rem, 1.2vw, 0.75rem);
-  max-width: 22rem;
+  max-width: 44rem;
   margin-bottom: 0.25rem;
 }
 
 .web-screenshots-grid img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 16 / 10;
   display: block;
+  object-fit: contain;
+  object-position: center center;
   background: var(--bg-soft);
   border: 1px solid var(--accent);
-  padding: 0.25rem;
+  padding: 0.35rem;
   box-sizing: border-box;
   transition: box-shadow 0.35s ease, border-color 0.35s ease;
   cursor: pointer;
@@ -596,11 +598,11 @@ ul {
 
 .web-screenshots-grid img:hover {
   border-color: var(--accent-dark);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
 }
 
 .web-screenshots-grid--featured {
-  max-width: 24rem;
+  max-width: 48rem;
   margin-bottom: 0.5rem;
 }
 
@@ -1382,6 +1384,11 @@ ul {
     gap: 0.25rem;
   }
 
+  .web-screenshots-grid,
+  .web-screenshots-grid--featured {
+    grid-template-columns: 1fr;
+    max-width: 22rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
