@@ -30,7 +30,7 @@ for f in creative-*.png; do
 done
 
 echo "Client + NFP work (1600px, high quality)..."
-for f in daphnes-artistry-*.png hanabi-baking-studio-*.png private-client-deck-*.png nonprofit-*.png; do
+for f in daphnes-artistry-*.png hanabi-baking-studio-*.png hku-forum-*.png private-client-deck-*.png nonprofit-*.png; do
   [[ -f "$f" ]] || continue
   to_jpeg "$f" 1600 92
 done

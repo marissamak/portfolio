@@ -614,6 +614,12 @@ ul {
   border-radius: 4px;
 }
 
+#web-development .case-study + .case-study {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--accent-dark);
+}
+
 .featured-callout {
   margin-bottom: 2.5rem;
   padding: 1.5rem 1.35rem;
