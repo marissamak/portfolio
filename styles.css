@@ -850,13 +850,15 @@ ul {
   outline-offset: 4px;
 }
 
-.project-card {
+.projects-grid .project-card,
+.creative-list .creative-project.project-card {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
 }
 
-.project-card.is-visible {
+.projects-grid .project-card.is-visible,
+.creative-list .creative-project.project-card.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1324,6 +1326,15 @@ ul {
   }
 }
 
+@media (max-width: 768px) {
+  .reveal,
+  .projects-grid .project-card,
+  .creative-list .creative-project.project-card {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (max-width: 640px) {
   .nav-desktop {
     display: none;
@@ -1374,7 +1385,8 @@ ul {
   }
 
   .reveal,
-  .project-card {
+  .projects-grid .project-card,
+  .creative-list .creative-project.project-card {
     opacity: 1;
     transform: none;
     transition: none;

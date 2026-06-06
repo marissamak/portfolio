@@ -35,37 +35,55 @@
     });
   }
 
+  const revealOptions = { threshold: 0.05, rootMargin: "0px 0px 5% 0px" };
+
+  function revealElement(el) {
+    el.classList.add("is-visible");
+  }
+
+  function revealStuckElements() {
+    document
+      .querySelectorAll(".reveal:not(.is-visible), .projects-grid .project-card:not(.is-visible), .creative-list .creative-project.project-card:not(.is-visible)")
+      .forEach(revealElement);
+  }
+
   /* Scroll reveal */
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-  );
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        revealElement(entry.target);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, revealOptions);
 
   document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-  /* Project cards fade-in */
-  const cardObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          cardObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.08, rootMargin: "0px 0px -20px 0px" }
-  );
+  /* Project cards fade-in (grid + brand list only) */
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        revealElement(entry.target);
+        cardObserver.unobserve(entry.target);
+      }
+    });
+  }, revealOptions);
 
-  document.querySelectorAll(".project-card, .case-study").forEach((card) => {
-    cardObserver.observe(card);
-  });
+  document
+    .querySelectorAll(".projects-grid .project-card, .creative-list .creative-project.project-card")
+    .forEach((card) => cardObserver.observe(card));
+
+  /* Mobile Safari often misses IO at the document bottom */
+  window.addEventListener("load", () => setTimeout(revealStuckElements, 2000));
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 120) {
+        revealStuckElements();
+      }
+    },
+    { passive: true }
+  );
 
   /* Work section jump nav highlight */
   const workSections = document.querySelectorAll(".work-category[id]");
