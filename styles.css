@@ -1236,12 +1236,62 @@ ul {
   color: var(--text-muted);
 }
 
-/* Floating connect button */
-.floating-connect {
+/* Floating actions */
+.floating-actions {
   position: fixed;
   bottom: clamp(1rem, 3vw, 1.5rem);
   right: clamp(1rem, 3vw, 1.5rem);
   z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.back-to-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--accent-dark);
+  color: var(--text);
+  box-shadow: 0 4px 14px rgba(89, 74, 78, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.35rem);
+  transition:
+    opacity 0.3s var(--ease),
+    transform 0.3s var(--ease),
+    background 0.25s var(--ease),
+    border-color 0.25s var(--ease);
+}
+
+.back-to-top.is-visible {
+  opacity: 0.88;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  opacity: 1;
+  background: var(--bg-soft);
+  border-color: var(--text);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+.back-to-top__icon {
+  display: block;
+}
+
+.floating-connect {
   width: clamp(4.5rem, 14vw, 5.75rem);
   height: clamp(4.5rem, 14vw, 5.75rem);
   opacity: 0.72;
@@ -1408,6 +1458,7 @@ ul {
     transition: none;
   }
 
+  .back-to-top,
   .floating-connect {
     transition: none;
   }

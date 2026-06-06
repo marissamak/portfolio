@@ -5,10 +5,18 @@
   const menuToggle = document.querySelector(".menu-toggle");
   const navMobile = document.querySelector(".nav-mobile");
 
-  /* Header scroll state */
+  const backToTop = document.getElementById("back-to-top");
+
+  /* Header scroll state + back to top */
   function onScroll() {
-    if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 40);
+    if (header) {
+      header.classList.toggle("is-scrolled", window.scrollY > 40);
+    }
+    if (backToTop) {
+      const show = window.scrollY > 480;
+      backToTop.classList.toggle("is-visible", show);
+      backToTop.hidden = !show;
+    }
   }
 
   window.addEventListener("scroll", onScroll, { passive: true });
