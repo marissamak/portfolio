@@ -7,6 +7,6 @@ echo "Pushing to marissamak/portfolio..."
 git push -u origin main
 echo ""
 echo "Done! Wait 1–2 minutes, then open:"
-echo "  https://marissamak.github.io/portfolio/"
+echo "  https://marissamak.com/"
 echo ""
 echo "Hard refresh: Cmd + Shift + R"

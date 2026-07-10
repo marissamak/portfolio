@@ -1,6 +1,6 @@
 # Marissa Mak — Portfolio
 
-Live site: **https://marissamak.github.io/portfolio/**
+Live site: **https://marissamak.com/**
 
 ## Publish / update the site
 
@@ -18,4 +18,6 @@ Live site: **https://marissamak.github.io/portfolio/**
 
 3. **Turn on GitHub Pages** (one time): [github.com/marissamak/portfolio/settings/pages](https://github.com/marissamak/portfolio/settings/pages) → **Source**: Deploy from branch → **main** → **/ (root)** → **Save**.
 
-After a minute or two, open https://marissamak.github.io/portfolio/
+4. **Custom domain** (one time): In the same Pages settings, set **Custom domain** to `marissamak.com` and enable **Enforce HTTPS**. The repo includes a `CNAME` file. At your domain registrar, point DNS to GitHub Pages (A records for `@`, or CNAME `www` → `marissamak.github.io`).
+
+After DNS propagates, open https://marissamak.com/

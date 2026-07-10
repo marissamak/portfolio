@@ -3,7 +3,7 @@
 cd "$(dirname "$0")"
 
 echo ""
-echo "  Live site: https://marissamak.github.io/portfolio/"
+echo "  Live site: https://marissamak.com/"
 echo ""
 
 git fetch origin main 2>/dev/null || true

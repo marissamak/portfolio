@@ -1,6 +1,6 @@
 # Your live site did not update because GitHub never got your files
 
-**Live URL:** https://marissamak.github.io/portfolio/
+**Live URL:** https://marissamak.com/
 
 Saving files in Cursor = your Mac only.  
 **GitHub** = what the world sees.  
@@ -24,7 +24,7 @@ It tells you how many commits are still waiting to push.
    - If it says **Push origin** → click it. Done.
    - If it only says **Commit to main** → type a message, click **Commit to main**, then **Push origin**
 4. When finished, the app should NOT say “X commits ahead of origin”
-5. Wait 2 minutes, open https://marissamak.github.io/portfolio/ and press **Cmd + Shift + R**
+5. Wait 2 minutes, open https://marissamak.com/ and press **Cmd + Shift + R**
 
 **You did NOT push if** `./push-live.sh` still says commits waiting.
 
@@ -55,7 +55,7 @@ Use this if Desktop will not push.
 ### Check it worked
 
 1. Wait 2 minutes
-2. Open https://marissamak.github.io/portfolio/
+2. Open https://marissamak.com/
 3. **Cmd + Shift + R**
 4. View Page Source → search for `v=17` (not `v=16`)
 5. Search page source for `View deck` → should find **nothing**
@@ -66,5 +66,6 @@ Use this if Desktop will not push.
 
 | Wrong | Right |
 |-------|--------|
-| marissamak.github.io | marissamak.github.io/**portfolio/** |
-| Old bookmark without /portfolio/ | Use full URL above |
+| Old URL | Use instead |
+| marissamak.github.io/portfolio/ | **https://marissamak.com/** |
+| Bookmark without custom domain | https://marissamak.com/ |
