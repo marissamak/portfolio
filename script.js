@@ -148,27 +148,52 @@
   /* Torch writing samples lightbox */
   const writingLightbox = document.getElementById("writing-lightbox");
   const writingCards = document.querySelectorAll(".writing-card[data-writing-images]");
+  const writingCopyButton = document.getElementById("writing-lightbox-copy");
   let writingLastFocus = null;
+  let writingActiveId = null;
+  let writingCopyResetTimer = null;
 
   if (writingLightbox && writingCards.length) {
     const writingTitle = writingLightbox.querySelector(".writing-lightbox__title");
     const writingIssue = writingLightbox.querySelector(".writing-lightbox__issue");
     const writingPages = writingLightbox.querySelector(".writing-lightbox__pages");
 
-    const closeWritingLightbox = () => {
+    const getWritingCardFromHash = () => {
+      const id = window.location.hash.slice(1);
+      if (!id.startsWith("writing-")) return null;
+      return document.getElementById(id);
+    };
+
+    const getWritingShareUrl = (id) => `${window.location.origin}${window.location.pathname}#${id}`;
+
+    const closeWritingLightbox = ({ updateHash = true } = {}) => {
       writingLightbox.hidden = true;
       writingLightbox.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
       writingPages.innerHTML = "";
+      writingActiveId = null;
+
+      if (writingCopyButton) {
+        writingCopyButton.textContent = "Copy link";
+        writingCopyButton.classList.remove("is-copied");
+      }
+
+      if (updateHash && window.location.hash.startsWith("#writing-")) {
+        history.replaceState(null, "", "#marketing-comms");
+      }
+
       if (writingLastFocus) {
         writingLastFocus.focus();
         writingLastFocus = null;
       }
     };
 
-    const openWritingLightbox = (card) => {
+    const openWritingLightbox = (card, { updateHash = true } = {}) => {
+      if (!card) return;
+
       const title = card.getAttribute("data-writing-title") || "Writing sample";
       const issue = card.getAttribute("data-writing-issue") || "";
+      const id = card.id;
       let images = [];
 
       try {
@@ -180,6 +205,7 @@
       writingTitle.textContent = title;
       writingIssue.textContent = issue;
       writingPages.innerHTML = "";
+      writingActiveId = id;
 
       images.forEach((src, index) => {
         const img = document.createElement("img");
@@ -191,20 +217,66 @@
         writingPages.appendChild(img);
       });
 
-      writingLastFocus = document.activeElement;
+      if (updateHash && id) {
+        history.replaceState(null, "", `#${id}`);
+      }
+
+      if (writingLightbox.hidden) {
+        writingLastFocus = document.activeElement;
+      }
+
       writingLightbox.hidden = false;
       writingLightbox.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
       writingLightbox.querySelector(".writing-lightbox__close")?.focus();
     };
 
+    const handleWritingHash = () => {
+      const card = getWritingCardFromHash();
+      if (card) {
+        openWritingLightbox(card, { updateHash: false });
+        return;
+      }
+
+      if (!writingLightbox.hidden && writingActiveId) {
+        closeWritingLightbox({ updateHash: false });
+      }
+    };
+
     writingCards.forEach((card) => {
-      card.addEventListener("click", () => openWritingLightbox(card));
+      card.addEventListener("click", (event) => {
+        event.preventDefault();
+        openWritingLightbox(card);
+      });
     });
 
     writingLightbox.querySelectorAll("[data-writing-close]").forEach((el) => {
-      el.addEventListener("click", closeWritingLightbox);
+      el.addEventListener("click", () => closeWritingLightbox());
     });
+
+    if (writingCopyButton) {
+      writingCopyButton.addEventListener("click", async () => {
+        if (!writingActiveId) return;
+
+        const shareUrl = getWritingShareUrl(writingActiveId);
+
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          writingCopyButton.textContent = "Copied";
+          writingCopyButton.classList.add("is-copied");
+          clearTimeout(writingCopyResetTimer);
+          writingCopyResetTimer = setTimeout(() => {
+            writingCopyButton.textContent = "Copy link";
+            writingCopyButton.classList.remove("is-copied");
+          }, 2000);
+        } catch {
+          window.prompt("Copy this link:", shareUrl);
+        }
+      });
+    }
+
+    window.addEventListener("hashchange", handleWritingHash);
+    handleWritingHash();
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && !writingLightbox.hidden) {
