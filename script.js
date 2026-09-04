@@ -144,4 +144,72 @@
       formNote.hidden = false;
     });
   }
+
+  /* Torch writing samples lightbox */
+  const writingLightbox = document.getElementById("writing-lightbox");
+  const writingCards = document.querySelectorAll(".writing-card[data-writing-images]");
+  let writingLastFocus = null;
+
+  if (writingLightbox && writingCards.length) {
+    const writingTitle = writingLightbox.querySelector(".writing-lightbox__title");
+    const writingIssue = writingLightbox.querySelector(".writing-lightbox__issue");
+    const writingPages = writingLightbox.querySelector(".writing-lightbox__pages");
+
+    const closeWritingLightbox = () => {
+      writingLightbox.hidden = true;
+      writingLightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      writingPages.innerHTML = "";
+      if (writingLastFocus) {
+        writingLastFocus.focus();
+        writingLastFocus = null;
+      }
+    };
+
+    const openWritingLightbox = (card) => {
+      const title = card.getAttribute("data-writing-title") || "Writing sample";
+      const issue = card.getAttribute("data-writing-issue") || "";
+      let images = [];
+
+      try {
+        images = JSON.parse(card.getAttribute("data-writing-images") || "[]");
+      } catch {
+        images = [];
+      }
+
+      writingTitle.textContent = title;
+      writingIssue.textContent = issue;
+      writingPages.innerHTML = "";
+
+      images.forEach((src, index) => {
+        const img = document.createElement("img");
+        img.className = "writing-lightbox__page";
+        img.src = src;
+        img.alt = images.length > 1 ? `${title} (page ${index + 1})` : title;
+        img.loading = "eager";
+        img.decoding = "async";
+        writingPages.appendChild(img);
+      });
+
+      writingLastFocus = document.activeElement;
+      writingLightbox.hidden = false;
+      writingLightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      writingLightbox.querySelector(".writing-lightbox__close")?.focus();
+    };
+
+    writingCards.forEach((card) => {
+      card.addEventListener("click", () => openWritingLightbox(card));
+    });
+
+    writingLightbox.querySelectorAll("[data-writing-close]").forEach((el) => {
+      el.addEventListener("click", closeWritingLightbox);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !writingLightbox.hidden) {
+        closeWritingLightbox();
+      }
+    });
+  }
 })();

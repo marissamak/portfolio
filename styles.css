@@ -652,6 +652,222 @@ ul {
   margin-top: 0.5rem;
 }
 
+.writing-gallery__intro {
+  max-width: 40rem;
+  margin: 0.35rem 0 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.writing-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 0.875rem;
+  margin-bottom: 2.5rem;
+}
+
+.writing-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.writing-card__frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--accent-dark);
+  border-radius: 3px;
+  background: var(--white);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.writing-card__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.writing-card__zoom {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: rgba(20, 28, 38, 0.55);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.writing-card:hover .writing-card__frame,
+.writing-card:focus-visible .writing-card__frame {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.writing-card:hover .writing-card__frame img,
+.writing-card:focus-visible .writing-card__frame img {
+  transform: scale(1.03);
+}
+
+.writing-card:hover .writing-card__zoom,
+.writing-card:focus-visible .writing-card__zoom {
+  opacity: 1;
+}
+
+.writing-card:focus-visible {
+  outline: none;
+}
+
+.writing-card:focus-visible .writing-card__frame {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+.writing-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.writing-card__title {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.writing-card__issue {
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.writing-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.writing-lightbox[hidden] {
+  display: none;
+}
+
+.writing-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 16, 22, 0.82);
+  backdrop-filter: blur(4px);
+}
+
+.writing-lightbox__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(52rem, 100%);
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  padding: 1.25rem 1rem 1.5rem;
+  background: var(--white);
+  border-radius: 4px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+}
+
+.writing-lightbox__close {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-left: auto;
+  margin-bottom: 0.25rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  color: var(--text);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.writing-lightbox__close:hover,
+.writing-lightbox__close:focus-visible {
+  background: var(--accent-dark);
+}
+
+.writing-lightbox__issue {
+  margin: 0 0 0.35rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.writing-lightbox__title {
+  margin: 0 0 1rem;
+  padding-right: 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+.writing-lightbox__pages {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.writing-lightbox__page {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--accent-dark);
+  border-radius: 2px;
+}
+
+@media (min-width: 640px) {
+  .writing-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem 1rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .writing-gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 #web-development .case-study + .case-study {
   margin-top: 2.5rem;
   padding-top: 2.5rem;
