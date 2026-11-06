@@ -238,9 +238,9 @@ ul {
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 0.92fr;
+  grid-template-columns: 1fr;
   gap: clamp(1.25rem, 3vw, 2.5rem);
-  align-items: center;
+  align-items: start;
 }
 
 .hero-eyebrow {
@@ -1634,22 +1634,6 @@ ul {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .hero-split {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-photo {
-    max-width: 16rem;
-    order: -1;
-    max-height: 20rem;
-    aspect-ratio: 1 / 1;
-    margin-left: 0;
-  }
-
-  .hero-split {
-    align-items: center;
-  }
-
   .skills-grid {
     grid-template-columns: 1fr 1fr;
   }
